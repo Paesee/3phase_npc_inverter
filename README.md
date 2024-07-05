@@ -32,15 +32,15 @@ Table 1: System Specifications.
 
 ## Modulation Method
 
-The paper proposes an optimal common-mode voltage selection method for NPC and T-Type topology inverters \cite{gleisson}. The method involves selecting a common-mode voltage $v_0$ to control the current $i_0$ through the midpoint of DC bus capacitors. This control facilitates tracking a voltage reference $V_{c_2}$ at the midpoint, which is precisely half of $V_{DC}$, ensuring balanced voltage division across capacitors $C_1$ and $C_2$.
+The paper proposes an optimal common-mode voltage selection method for NPC and T-Type topology inverters. The method involves selecting a common-mode voltage $v_0$ to control the current $i_0$ through the midpoint of DC bus capacitors. This control facilitates tracking a voltage reference $V_{c_2}$ at the midpoint, which is precisely half of $V_{DC}$, ensuring balanced voltage division across capacitors $C_1$ and $C_2$.
 
 ## Control Law
 
-The focus of the study is on the converter modulation. The control law involves an inner current loop based on state feedback with gains determined by DLQR. The outer voltage loop imposes a reference current for the inner loop and uses a state feedback proportional-resonant controller, also employing DLQR. For detailed information on this law, refer to \cite{alexandre}.
+The focus of the study is on the converter modulation. The control law involves an inner current loop based on state feedback with gains determined by DLQR. The outer voltage loop imposes a reference current for the inner loop and uses a state feedback proportional-resonant controller, also employing DLQR. For detailed information on this law, refer to references.
 
 ## Simulation
 
-The electrical plant, modulation, and control laws were simulated using Virtual Hardware-In-The-Loop (VHIL) with a simulation step of 0.25 µs. The implementation was made modular and suitable for microcontrollers, developed in C language format as a dynamic-linked library (DLL) using the Typhoon HIL Control Center software \cite{chil}.
+The electrical plant, modulation, and control laws were simulated using Virtual Hardware-In-The-Loop (VHIL) with a simulation step of 0.25 µs. The implementation was made modular and suitable for microcontrollers, developed in C language format as a dynamic-linked library (DLL) using the Typhoon HIL Control Center software.
 
 ## Results
 
@@ -61,7 +61,7 @@ The dynamic behavior of the midpoint voltage $V_{mid}$ under varying conditions,
 
 ## Usage
 
-For further details, please refer to the complete LaTeX document provided in this repository [Link to Thesis](doc/thesis.pdf).
+For further details, please refer to the [complete PDF document provided in this repository](doc/Seleção_Ótima_da_Tensão_de_Modo_Comum_para_Conversor_NPC.pdf).
 
 ## References
 
