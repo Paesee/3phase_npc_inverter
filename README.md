@@ -1,7 +1,5 @@
 # Optimal Common-Mode Voltage Selection for NPC Converters
 
-This repository contains the LaTeX source code for a paper on optimal common-mode voltage selection for NPC converters, authored by Vítor Paese De Carli.
-
 ## Introduction
 
 The proposed static converter is a three-phase NPC inverter designed to act as a grid former. Its operation includes islanded mode, where it mimics the behavior of a synchronous generator, and grid-connected mode, where it controls exported or imported power according to external grid voltage and frequency references.
@@ -18,10 +16,10 @@ Critical parameters such as DC bus voltage, filter inductance, and capacitor val
 |------------------------------------|----------------|-------------|
 | Nominal Power                       | $S_{nom}$      | 225 kVA     |
 | DC Bus Voltage                     | $V_{DC}$       | 1000 V      |
-| Capacitance of Capacitor            | $C_{1,2}$      | 1500 $\mu$F |
+| Capacitance of Capacitor            | $C_{1,2}$      | 1500 uF |
 | Filter Inductance                   | $L_f$          | 0.5 mH      |
 | Series Resistance of Inductor       | $L_f$          | 0.05 $\Omega$|
-| Filter Capacitance                  | $C_f$          | 150 $\mu$F  |
+| Filter Capacitance                  | $C_f$          | 150 uF  |
 | Damping Resistance                  | $R_d$          | 0.1 $\Omega$|
 | Grid Nominal Voltage                | $V_{grid}$     | 440 V       |
 | Grid Nominal Frequency              | $f_{grid}$     | 60 Hz       |
