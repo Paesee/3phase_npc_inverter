@@ -61,11 +61,10 @@ The dynamic behavior of the midpoint voltage $V_{mid}$ under varying conditions,
 
 ## Usage
 
-For further details, please refer to the complete LaTeX document provided in this repository.
+For further details, please refer to the complete LaTeX document provided in this repository [Link to Thesis](doc/thesis.pdf).
 
 ## References
 
-- [IEEE Xplore](https://ieeexplore.ieee.org/document/8927073)
 - André Pacheco Meurer. *CONTROLE HIERÁRQUICO PARA INVERSORES FORMADORES DE REDE EM MICRORREDES AC*. PhD thesis, UFSM, 2023.
 - Typhoon HIL. *C function*. 2023. Available at: [Typhoon HIL Documentation](https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/c_function.html).
 - Gleisson Balen et al. *Optimum Geometric Carrier-Based Modulation for NPC and T-Type Inverters*. In: *IECON 2019 - 45th Annual Conference of the IEEE Industrial Electronics Society*, 2019. DOI: [10.1109/IECON.2019.8927073](https://doi.org/10.1109/IECON.2019.8927073).
