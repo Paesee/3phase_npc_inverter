@@ -1,0 +1,2709 @@
+
+<model_description>
+    <sw_version>2024.1</sw_version>
+    <hw_properties>
+        <revision>3</revision>
+        <product_id>VHIL+</product_id>
+        <configuration_id>1</configuration_id>
+        <device_ao_limit_enable>False</device_ao_limit_enable>
+        <device_id>0</device_id>
+        <spc_out_mem_size>512</spc_out_mem_size>
+        <fw_support_limit>132582422</fw_support_limit>
+        <vhil_adio_loopback>False</vhil_adio_loopback>
+    </hw_properties>
+    <sim_setup>
+        <sim_time_step>2.5e-07</sim_time_step>
+    </sim_setup>
+    <pesb>
+        <cell>
+            <name>Three Phase NPC Inverter1</name>
+            <type>
+                <cell>igbt_npc_3l_leg</cell>
+            </type>
+            <site>1</site>
+            <switches>
+                <cell>
+                    <name>Sa_1</name>
+                    <weights>
+                        <cell>[3]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sa_2</name>
+                    <weights>
+                        <cell>[2]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sa_3</name>
+                    <weights>
+                        <cell>[1]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sa_4</name>
+                    <weights>
+                        <cell>[0]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sb_1</name>
+                    <weights>
+                        <cell>[9]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sb_2</name>
+                    <weights>
+                        <cell>[8]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sb_3</name>
+                    <weights>
+                        <cell>[7]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sb_4</name>
+                    <weights>
+                        <cell>[6]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sc_1</name>
+                    <weights>
+                        <cell>[15]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sc_2</name>
+                    <weights>
+                        <cell>[14]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sc_3</name>
+                    <weights>
+                        <cell>[13]</cell>
+                    </weights>
+                </cell>
+                <cell>
+                    <name>Sc_4</name>
+                    <weights>
+                        <cell>[12]</cell>
+                    </weights>
+                </cell>
+            </switches>
+        </cell>
+    </pesb>
+    <analog_variables>
+        <cell>
+            <name>Grid Load.Load.Phase C.R_ref.L</name>
+            <address>11</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.L_ref.Lint</name>
+            <address>6</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Line Impedance.Lbg</name>
+            <address>12</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.C2</name>
+            <address>2</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.L_ref.Lint</name>
+            <address>8</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.R_ref.L</name>
+            <address>9</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.L_ref.Lint</name>
+            <address>10</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Line Impedance.Lcg</name>
+            <address>13</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.C2</name>
+            <address>4</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.R_ref.L</name>
+            <address>7</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.C_ref.Cint</name>
+            <address>3</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.C_ref.Cint</name>
+            <address>5</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.C2</name>
+            <address>0</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.C_ref.Cint</name>
+            <address>1</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.L_ref.V</name>
+            <address>15</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.L_ref.flux</name>
+            <address>28</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.C_ref.I</name>
+            <address>34</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.C_ref.I</name>
+            <address>26</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.C_ref.I</name>
+            <address>30</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Vac</name>
+            <address>24</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.R_ref.I</name>
+            <address>33</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.L_ref.flux</name>
+            <address>36</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.I</name>
+            <address>35</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line Impedance.Ilbg</name>
+            <address>39</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.R_ref.I</name>
+            <address>37</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.C_ref.charge</name>
+            <address>17</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.C_ref.charge</name>
+            <address>14</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Vbc</name>
+            <address>25</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.V</name>
+            <address>22</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Vab</name>
+            <address>23</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.R_ref.I</name>
+            <address>29</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Core Coupling 3.cpl1.I_msr</name>
+            <address>452</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.L_ref.V</name>
+            <address>18</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.V</name>
+            <address>19</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.C_ref.charge</name>
+            <address>20</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.L_ref.flux</name>
+            <address>32</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.V</name>
+            <address>16</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Core Coupling 3.cpl2.I_msr</name>
+            <address>453</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line Impedance.Ilag</name>
+            <address>38</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.I</name>
+            <address>27</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.L_ref.V</name>
+            <address>21</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Line Impedance.Ilcg</name>
+            <address>40</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.I</name>
+            <address>31</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ca2</name>
+            <address>516</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ca1</name>
+            <address>515</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ca</name>
+            <address>514</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C2.Cint</name>
+            <address>512</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Lc1</name>
+            <address>518</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C3.Cint</name>
+            <address>513</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Lb1</name>
+            <address>517</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VBn</name>
+            <address>529</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IA</name>
+            <address>547</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.ivar_d</name>
+            <address>544</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.v1</name>
+            <address>913</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.il</name>
+            <address>904</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Core Coupling 3.cpl1.V_msr</name>
+            <address>960</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Core Coupling 3.cpl2.V_msr</name>
+            <address>961</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.il</name>
+            <address>912</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Vca3</name>
+            <address>525</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Vca2</name>
+            <address>524</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.v1</name>
+            <address>905</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ilb1</name>
+            <address>542</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.vZ</name>
+            <address>907</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VAn</name>
+            <address>527</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C2.I</name>
+            <address>538</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.il</name>
+            <address>896</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.vZ</name>
+            <address>915</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VBn</name>
+            <address>535</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.VC2</name>
+            <address>522</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.ivar_d</name>
+            <address>546</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C3.charge</name>
+            <address>520</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IB</name>
+            <address>548</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VBC</name>
+            <address>528</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.ivar_d</name>
+            <address>545</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VAB</name>
+            <address>526</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C2.charge</name>
+            <address>519</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VCA</name>
+            <address>530</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VCn</name>
+            <address>531</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.v1</name>
+            <address>897</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VAB</name>
+            <address>532</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.v2</name>
+            <address>906</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ilc1</name>
+            <address>543</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VAn</name>
+            <address>533</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Vca1</name>
+            <address>523</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.vZ</name>
+            <address>899</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VCA</name>
+            <address>536</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.VC1</name>
+            <address>521</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.I0</name>
+            <address>540</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>LC Filter.Ila1</name>
+            <address>541</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.IC</name>
+            <address>552</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VCn</name>
+            <address>537</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.v2</name>
+            <address>914</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.IA</name>
+            <address>550</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.v2</name>
+            <address>898</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>False</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.C3.I</name>
+            <address>539</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.IB</name>
+            <address>551</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-Meter.VBC</name>
+            <address>534</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IC</name>
+            <address>549</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>DC Bus.VDC_2</name>
+            <address>33280</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>const_0V</name>
+            <address>34304</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 1</name>
+            <address>34816</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 2</name>
+            <address>34817</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 3</name>
+            <address>34818</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 4</name>
+            <address>34819</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 5</name>
+            <address>34820</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 6</name>
+            <address>34821</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 7</name>
+            <address>34822</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 8</name>
+            <address>34823</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 9</name>
+            <address>34824</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 10</name>
+            <address>34825</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 11</name>
+            <address>34826</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 12</name>
+            <address>34827</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 13</name>
+            <address>34828</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 14</name>
+            <address>34829</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 15</name>
+            <address>34830</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 16</name>
+            <address>34831</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 17</name>
+            <address>34832</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 18</name>
+            <address>34833</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 19</name>
+            <address>34834</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 20</name>
+            <address>34835</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 21</name>
+            <address>34836</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 22</name>
+            <address>34837</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 23</name>
+            <address>34838</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 24</name>
+            <address>34839</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 25</name>
+            <address>34840</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 26</name>
+            <address>34841</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 27</name>
+            <address>34842</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 28</name>
+            <address>34843</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 29</name>
+            <address>34844</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 30</name>
+            <address>34845</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 31</name>
+            <address>34846</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 32</name>
+            <address>34847</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+    </analog_variables>
+    <digital_variables>
+        <cell>
+            <name>const_0</name>
+            <address>1</address>
+        </cell>
+        <cell>
+            <name>HIL0 AO flag</name>
+            <address>8</address>
+        </cell>
+        <cell>
+            <name>HIL0 DTV flag</name>
+            <address>9</address>
+        </cell>
+        <cell>
+            <name>HIL0 Capture/Scope Trigger</name>
+            <address>16</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 1</name>
+            <address>512</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 2</name>
+            <address>513</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 3</name>
+            <address>514</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 4</name>
+            <address>515</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 5</name>
+            <address>516</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 6</name>
+            <address>517</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 7</name>
+            <address>518</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 8</name>
+            <address>519</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 9</name>
+            <address>520</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 10</name>
+            <address>521</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 11</name>
+            <address>522</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 12</name>
+            <address>523</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 13</name>
+            <address>524</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 14</name>
+            <address>525</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 15</name>
+            <address>526</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 16</name>
+            <address>527</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 17</name>
+            <address>528</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 18</name>
+            <address>529</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 19</name>
+            <address>530</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 20</name>
+            <address>531</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 21</name>
+            <address>532</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 22</name>
+            <address>533</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 23</name>
+            <address>534</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 24</name>
+            <address>535</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 25</name>
+            <address>536</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 26</name>
+            <address>537</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 27</name>
+            <address>538</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 28</name>
+            <address>539</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 29</name>
+            <address>540</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 30</name>
+            <address>541</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 31</name>
+            <address>542</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 32</name>
+            <address>543</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 33</name>
+            <address>544</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 34</name>
+            <address>545</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 35</name>
+            <address>546</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 36</name>
+            <address>547</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 37</name>
+            <address>548</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 38</name>
+            <address>549</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 39</name>
+            <address>550</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 40</name>
+            <address>551</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 41</name>
+            <address>552</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 42</name>
+            <address>553</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 43</name>
+            <address>554</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 44</name>
+            <address>555</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 45</name>
+            <address>556</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 46</name>
+            <address>557</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 47</name>
+            <address>558</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 48</name>
+            <address>559</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 49</name>
+            <address>560</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 50</name>
+            <address>561</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 51</name>
+            <address>562</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 52</name>
+            <address>563</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 53</name>
+            <address>564</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 54</name>
+            <address>565</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 55</name>
+            <address>566</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 56</name>
+            <address>567</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 57</name>
+            <address>568</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 58</name>
+            <address>569</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 59</name>
+            <address>570</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 60</name>
+            <address>571</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 61</name>
+            <address>572</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 62</name>
+            <address>573</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 63</name>
+            <address>574</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 64</name>
+            <address>575</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.vdel3_out</name>
+            <address>857</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg1_S3_vdel_out</name>
+            <address>857</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.vdel4_out</name>
+            <address>856</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg1_S4_vdel_out</name>
+            <address>856</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.vdel2_out</name>
+            <address>858</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg1_S2_vdel_out</name>
+            <address>858</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.vdel1_out</name>
+            <address>859</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg1_S1_vdel_out</name>
+            <address>859</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.vdel3_out</name>
+            <address>861</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg2_S3_vdel_out</name>
+            <address>861</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.vdel2_out</name>
+            <address>862</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg2_S2_vdel_out</name>
+            <address>862</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.vdel1_out</name>
+            <address>863</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg2_S1_vdel_out</name>
+            <address>863</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.vdel4_out</name>
+            <address>860</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg2_S4_vdel_out</name>
+            <address>860</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.vdel2_out</name>
+            <address>866</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg3_S2_vdel_out</name>
+            <address>866</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.vdel1_out</name>
+            <address>867</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg3_S1_vdel_out</name>
+            <address>867</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.vdel3_out</name>
+            <address>865</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg3_S3_vdel_out</name>
+            <address>865</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.vdel4_out</name>
+            <address>864</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg3_S4_vdel_out</name>
+            <address>864</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.S1.feedback</name>
+            <address>1024</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase A.S1_fb</name>
+            <address>1024</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.S1.feedback</name>
+            <address>1025</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase B.S1_fb</name>
+            <address>1025</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.S1.feedback</name>
+            <address>1026</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Phase C.S1_fb</name>
+            <address>1026</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.S1.feedback</name>
+            <address>1027</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.S1_fb</name>
+            <address>1027</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase A.stf</name>
+            <address>1074</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg1_stf</name>
+            <address>1074</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase B.stf</name>
+            <address>1075</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg2_stf</name>
+            <address>1075</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.Phase C.stf</name>
+            <address>1076</address>
+        </cell>
+        <cell>
+            <name>Three Phase NPC Inverter1.NPC Leg3_stf</name>
+            <address>1076</address>
+        </cell>
+    </digital_variables>
+    <sources>
+        <cell>
+            <name>DC Bus.VDC_2</name>
+            <type>1phase</type>
+            <address>[0]</address>
+            <unit>V</unit>
+            <init_settings>['Constant', 500.0]</init_settings>
+        </cell>
+    </sources>
+    <machines>
+    </machines>
+    <pv_panels>
+    </pv_panels>
+    <batteries>
+    </batteries>
+    <contactors>
+    <cell>
+        <name>Grid Load.Load.Phase A.S1</name>
+        <type>spdt_contactor</type>
+        <weight>0</weight>
+        <site>0</site>
+   </cell>
+    <cell>
+        <name>Grid Load.Load.Phase B.S1</name>
+        <type>spdt_contactor</type>
+        <weight>1</weight>
+        <site>0</site>
+   </cell>
+    <cell>
+        <name>Grid Load.Load.Phase C.S1</name>
+        <type>spdt_contactor</type>
+        <weight>2</weight>
+        <site>0</site>
+   </cell>
+    <cell>
+        <name>Grid Load.Load.S1</name>
+        <type>three_phase_breaker</type>
+        <weight>3</weight>
+        <site>0</site>
+   </cell>
+    </contactors>
+    <analog_output_settings>
+    </analog_output_settings>
+    <digital_output_settings>
+    </digital_output_settings>
+    <dtv>
+        <spc_dtv>
+            <cell>
+                <address>6</address>
+                <fqn>Three Phase NPC Inverter1.Phase A</fqn>
+            </cell>
+            <cell>
+                <address>7</address>
+                <fqn>Three Phase NPC Inverter1.Phase B</fqn>
+            </cell>
+            <cell>
+                <address>8</address>
+                <fqn>Three Phase NPC Inverter1.Phase C</fqn>
+            </cell>
+        </spc_dtv>
+        <par_dtv>
+        </par_dtv>
+    </dtv>
+
+<!-- ******* SP DATA ******** -->
+
+    <model_properties>
+        <execution_rates>[[[1e-06, 5e-05]]]</execution_rates>
+        <sys_real_type_precision>double</sys_real_type_precision>
+        <user_real_type_precision>double</user_real_type_precision>
+        <sig_stim>off</sig_stim>
+    </model_properties>
+
+    <analog_variables>
+        <cell>
+            <name>Modulation.LC</name>
+            <type>generic</type>
+            <address>16405</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VC_AB0[0]</name>
+            <type>generic</type>
+            <address>16412</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VC_AB0[1]</name>
+            <type>generic</type>
+            <address>16413</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VC_AB0[2]</name>
+            <type>generic</type>
+            <address>16414</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>V0_AB0[0]</name>
+            <type>generic</type>
+            <address>16409</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>V0_AB0[1]</name>
+            <type>generic</type>
+            <address>16410</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>V0_AB0[2]</name>
+            <type>generic</type>
+            <address>16411</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pmeas_C_kW</name>
+            <type>generic</type>
+            <address>16386</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ILF0_AB0[0]</name>
+            <type>generic</type>
+            <address>16400</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ILF0_AB0[1]</name>
+            <type>generic</type>
+            <address>16401</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qref_B_fb_kVAr</name>
+            <type>generic</type>
+            <address>16397</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VBC_RMS</name>
+            <type>voltage</type>
+            <address>16425</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.POWER_Q</name>
+            <type>reactive power</type>
+            <address>16421</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IA_RMS</name>
+            <type>current</type>
+            <address>16416</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pmeas_A_kW</name>
+            <type>generic</type>
+            <address>16384</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qref_fb_kVAr</name>
+            <type>generic</type>
+            <address>16399</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pref_fb_kW</name>
+            <type>generic</type>
+            <address>16391</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IC_RMS</name>
+            <type>current</type>
+            <address>16418</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pref_B_fb_kW</name>
+            <type>generic</type>
+            <address>16389</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pmeas_B_kW</name>
+            <type>generic</type>
+            <address>16385</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating[0]</name>
+            <type>generic</type>
+            <address>16429</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating[1]</name>
+            <type>generic</type>
+            <address>16430</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating[2]</name>
+            <type>generic</type>
+            <address>16431</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating1[0]</name>
+            <type>generic</type>
+            <address>16432</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating1[1]</name>
+            <type>generic</type>
+            <address>16433</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>modulating1[2]</name>
+            <type>generic</type>
+            <address>16434</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qmeas_C_kVAr</name>
+            <type>generic</type>
+            <address>16394</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ube</name>
+            <type>generic</type>
+            <address>16436</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VAB_RMS</name>
+            <type>voltage</type>
+            <address>16423</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.POWER_P</name>
+            <type>active power</type>
+            <address>16419</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.IB_RMS</name>
+            <type>current</type>
+            <address>16417</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qref_A_fb_kVAr</name>
+            <type>generic</type>
+            <address>16396</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.POWER_PF</name>
+            <type>generic</type>
+            <address>16420</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Modulation.UC</name>
+            <type>generic</type>
+            <address>16406</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qmeas_kVAr</name>
+            <type>generic</type>
+            <address>16395</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VCA_RMS</name>
+            <type>voltage</type>
+            <address>16427</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.Freq</name>
+            <type>frequency</type>
+            <address>16415</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VCn_RMS</name>
+            <type>voltage</type>
+            <address>16428</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pref_A_fb_kW</name>
+            <type>generic</type>
+            <address>16388</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>STEADY_STATE_FB</name>
+            <type>generic</type>
+            <address>16407</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qref_C_fb_kVAr</name>
+            <type>generic</type>
+            <address>16398</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qmeas_A_kVAr</name>
+            <type>generic</type>
+            <address>16392</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ILF_AB0[0]</name>
+            <type>generic</type>
+            <address>16402</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ILF_AB0[1]</name>
+            <type>generic</type>
+            <address>16403</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ILF_AB0[2]</name>
+            <type>generic</type>
+            <address>16404</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pmeas_kW</name>
+            <type>generic</type>
+            <address>16387</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VAn_RMS</name>
+            <type>voltage</type>
+            <address>16424</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>ual</name>
+            <type>generic</type>
+            <address>16435</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>TEST_FLAG_FB</name>
+            <type>generic</type>
+            <address>16408</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Pref_C_fb_kW</name>
+            <type>generic</type>
+            <address>16390</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Qmeas_B_kVAr</name>
+            <type>generic</type>
+            <address>16393</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.POWER_S</name>
+            <type>apparent power</type>
+            <address>16422</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VSC1-FMeter.VBn_RMS</name>
+            <type>voltage</type>
+            <address>16426</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+    </analog_variables>
+
+    <digital_variables>
+        <cell>
+            <name>Grid Load.Load.Balance_en_fb</name>
+            <address>2048</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.MCB_status</name>
+            <address>2050</address>
+        </cell>
+        <cell>
+            <name>Grid Load.Load.Enable_fb</name>
+            <address>2049</address>
+        </cell>
+    </digital_variables>
+<digital_variables>
+    </digital_variables>
+
+    <tunable_params>
+        <tunable_param>
+            <name>Modulation.Lower_Carrier.frequency</name>
+            <addr>[0]</addr>
+            <min>1e-12</min>
+            <max></max>
+            <def_value>20000.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Lower_Carrier.duty_cycle</name>
+            <addr>[8]</addr>
+            <min>0.0</min>
+            <max>1</max>
+            <def_value>0.5</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Lower_Carrier.max_val</name>
+            <addr>[16]</addr>
+            <min></min>
+            <max></max>
+            <def_value>0.5</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Lower_Carrier.min_val</name>
+            <addr>[24]</addr>
+            <min></min>
+            <max></max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Lower_Carrier.phase</name>
+            <addr>[32]</addr>
+            <min>0</min>
+            <max>1</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Upper_Carrier.min_val</name>
+            <addr>[40]</addr>
+            <min></min>
+            <max></max>
+            <def_value>0.5</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Upper_Carrier.frequency</name>
+            <addr>[48]</addr>
+            <min>1e-12</min>
+            <max></max>
+            <def_value>20000.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Upper_Carrier.phase</name>
+            <addr>[56]</addr>
+            <min>0</min>
+            <max>1</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Upper_Carrier.max_val</name>
+            <addr>[64]</addr>
+            <min></min>
+            <max></max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Modulation.Upper_Carrier.duty_cycle</name>
+            <addr>[72]</addr>
+            <min>0.0</min>
+            <max>1</max>
+            <def_value>0.5</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>tunable property</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>1e-06</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>C</name>
+            <addr>[1426063616]</addr>
+            <min>1.0</min>
+            <max>40000.0</max>
+            <def_value>5000.0</def_value>
+            <unit>uF</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Enable</name>
+            <addr>[1426063620]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Pref</name>
+            <addr>[1426063624]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Pref_PhaseA</name>
+            <addr>[1426063628]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Pref_PhaseB</name>
+            <addr>[1426063632]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Pref_PhaseC</name>
+            <addr>[1426063636]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Qref</name>
+            <addr>[1426063640]</addr>
+            <min>-1.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Qref_PhaseA</name>
+            <addr>[1426063644]</addr>
+            <min>-1.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Qref_PhaseB</name>
+            <addr>[1426063648]</addr>
+            <min>-1.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.Qref_PhaseC</name>
+            <addr>[1426063652]</addr>
+            <min>-1.0</min>
+            <max>1.0</max>
+            <def_value>0.5</def_value>
+            <unit>pu</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>Grid Load.Load.ROC</name>
+            <addr>[1426063656]</addr>
+            <min>0.001</min>
+            <max>1000000.0</max>
+            <def_value>5.0</def_value>
+            <unit>pu/s</unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>KP</name>
+            <addr>[1426063660]</addr>
+            <min>0.0</min>
+            <max>10000.0</max>
+            <def_value>10.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>KR</name>
+            <addr>[1426063664]</addr>
+            <min>0.1</min>
+            <max>50.0</max>
+            <def_value>8.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>STEADY_STATE</name>
+            <addr>[1426063668]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>integer</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>TEST_FLAG</name>
+            <addr>[1426063672]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>integer</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+        <tunable_param>
+            <name>v_line_rms</name>
+            <addr>[1426063676]</addr>
+            <min>0.0</min>
+            <max>707.1067811865474</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rate>5e-05</execution_rate>
+            <visible>True</visible>
+        </tunable_param>
+    </tunable_params>
+
+
+    <dsp_monitors>
+        <monitor>
+            <type>user</type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rates>[1e-06, 5e-05]</execution_rates>
+            <execution_rate_labels>['ER0 (1e-06)', 'ER1 (5e-05)']</execution_rate_labels>
+            <timer_counters>[139, 6999]</timer_counters>
+
+            
+        </monitor>
+    </dsp_monitors>
+
+    <sp_compiler_type>gcc</sp_compiler_type>
+
+    <streaming>
+
+
+
+     </streaming>
+
+
+    <adv_c_ext_src>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_ref_clarke</identifier_name>
+            <fqn>_ref_clarke</fqn>
+            <fqn_original>REF_CLARKE</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>lib_park_clarke.dll</library_name>
+                    <linking_name>lib_park_clarke</linking_name>
+                    <library_path_relative>ext-src/_ref_clarke/binaries/lib_park_clarke.dll</library_path_relative>
+                    <library_path_absolute>ext-src/_ref_clarke/binaries/lib_park_clarke.dll</library_path_absolute>
+                    <include_folder_relative>ext-src/_ref_clarke/binaries</include_folder_relative>
+                    <h_file>park_clarke.h</h_file>
+                    <h_include_folder_relative>ext-src/_ref_clarke/binaries</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_meas_clarke</identifier_name>
+            <fqn>_meas_clarke</fqn>
+            <fqn_original>MEAS_CLARKE</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>lib_park_clarke.dll</library_name>
+                    <linking_name>lib_park_clarke</linking_name>
+                    <library_path_relative>ext-src/_meas_clarke/binaries/lib_park_clarke.dll</library_path_relative>
+                    <library_path_absolute>ext-src/_meas_clarke/binaries/lib_park_clarke.dll</library_path_absolute>
+                    <include_folder_relative>ext-src/_meas_clarke/binaries</include_folder_relative>
+                    <h_file>park_clarke.h</h_file>
+                    <h_include_folder_relative>ext-src/_meas_clarke/binaries</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_inner_loop_alpha</identifier_name>
+            <fqn>_inner_loop_alpha</fqn>
+            <fqn_original>INNER_LOOP_ALPHA</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_geo_pwm</identifier_name>
+            <fqn>_geo_pwm</fqn>
+            <fqn_original>GEO_PWM</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>lib_geometric_modulation.dll</library_name>
+                    <linking_name>lib_geometric_modulation</linking_name>
+                    <library_path_relative>ext-src/_geo_pwm/binaries/lib_geometric_modulation.dll</library_path_relative>
+                    <library_path_absolute>ext-src/_geo_pwm/binaries/lib_geometric_modulation.dll</library_path_absolute>
+                    <include_folder_relative>ext-src/_geo_pwm/binaries</include_folder_relative>
+                    <h_file>geometric_modulation.h</h_file>
+                    <h_include_folder_relative>ext-src/_geo_pwm/binaries</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_modulation_comparator</identifier_name>
+            <fqn>_modulation_comparator</fqn>
+            <fqn_original>Modulation.Comparator</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_inner_loop_alpha1</identifier_name>
+            <fqn>_inner_loop_alpha1</fqn>
+            <fqn_original>INNER_LOOP_ALPHA1</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+        <component>
+            <is_fmi>False</is_fmi>
+            <identifier_name>_inv_clarke</identifier_name>
+            <fqn>_inv_clarke</fqn>
+            <fqn_original>INV_CLARKE</fqn_original>
+            <include_imports>True</include_imports>
+            <library_load_type>Compile-time load</library_load_type>
+            <macros></macros>
+            <library>
+                <win64>
+                    <library_name>lib_park_clarke.dll</library_name>
+                    <linking_name>lib_park_clarke</linking_name>
+                    <library_path_relative>ext-src/_inv_clarke/binaries/lib_park_clarke.dll</library_path_relative>
+                    <library_path_absolute>ext-src/_inv_clarke/binaries/lib_park_clarke.dll</library_path_absolute>
+                    <include_folder_relative>ext-src/_inv_clarke/binaries</include_folder_relative>
+                    <h_file>park_clarke.h</h_file>
+                    <h_include_folder_relative>ext-src/_inv_clarke/binaries</h_include_folder_relative>
+                </win64>
+                <linux64>
+                    <library_name>False</library_name>
+                    <linking_name>False</linking_name>
+                    <library_path_relative>False</library_path_relative>
+                    <library_path_absolute>False</library_path_absolute>
+                    <include_folder_relative>False</include_folder_relative>
+                    <h_file>False</h_file>
+                    <h_include_folder_relative>False</h_include_folder_relative>
+                </linux64>
+            </library>
+            <additional_sources>
+                <h>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                </h>
+                <c>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </c>
+                <cpp>
+                    <files>set()</files>
+                    <files_relative_paths>set()</files_relative_paths>
+                    <folders_relative_paths>set()</folders_relative_paths>
+                    <o_files>set()</o_files>
+                    <d_files>set()</d_files>
+                </cpp>
+            </additional_sources>
+        </component>
+    </adv_c_ext_src>
+</model_description>

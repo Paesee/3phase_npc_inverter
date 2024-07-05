@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+  ],
+  "settings": {
+    "files.associations": {
+      "*.c": "c",
+      "geometric_modulation.h": "c"
+    }
+  }
+}

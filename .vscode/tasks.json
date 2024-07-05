@@ -1,0 +1,184 @@
+{
+	"version": "2.0.0",
+	"tasks":
+  [
+    {
+      "type": "cppbuild",
+      "label": "Compilar",
+      "command": "gcc",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "-Os",
+        "-Wall",
+        "-pg",
+        "-no-pie",
+        "-w",
+        "${workspaceFolder}/main.c",
+        "-o",
+        "${workspaceFolder}/main.exe",
+        "-I${workspaceFolder}/src",
+        "-I${workspaceFolder}/tests",
+        "${workspaceFolder}/src/*.c",
+        "${workspaceFolder}/tests/*.c",
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "base": "$gcc",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "gcc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true,
+        "close": false
+      }
+    },
+    {
+      "label": "object_geometric_modulation",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-w",
+        "-c",
+        "${workspaceFolder}/src/geometric_modulation.c",
+        "-o",
+        "${workspaceFolder}/output/virtual_hil/geometric_modulation.o",
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "dll_geometric_modulation",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-shared",
+        "-o",
+        "${workspaceFolder}/output/virtual_hil/lib_geometric_modulation.dll",
+        "${workspaceFolder}/output/virtual_hil/geometric_modulation.o"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "object_park_clarke",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-w",
+        "-c",
+        "${workspaceFolder}/src/park_clarke.c",
+        "-o",
+        "${workspaceFolder}/output/virtual_hil/park_clarke.o",
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "dll_park_clarke",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-shared",
+        "-o",
+        "${workspaceFolder}/output/virtual_hil/lib_park_clarke.dll",
+        "${workspaceFolder}/output/virtual_hil/park_clarke.o"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "type": "shell",
+      "label": "Compilar para VHIL",
+      "command": "echo",
+      "args": [
+        "Todas as DLLs foram compilada para o VHIL. Por favor verifique a concordância entre o arquivos de header e o HIL Controler Center."
+      ],
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "object_geometric_modulation",
+        "dll_geometric_modulation",
+        "object_park_clarke",
+        "dll_park_clarke",
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    }
+  ]
+}
