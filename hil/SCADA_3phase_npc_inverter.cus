@@ -56,24 +56,12 @@ SETTINGS_DIR = get_settings_dir_path()
                             <analog_signals>
                                 <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[DC Bus.VC2]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>1</channel>
                                     <name><![CDATA[TEST_FLAG_FB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
-                                    <row>1</row>
+                                    <row>0</row>
                                     <viewports>
                                    </viewports>
                                </analog>
@@ -84,7 +72,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             </virtual_signals>
                             <trigger>
                                 <device>0</device>
-                                <is_force>False</is_force>
+                                <is_force>True</is_force>
                                 <type>Analog</type>
                                 <source><![CDATA[TEST_FLAG_FB]]></source>
                                 <edge>Rising edge</edge>
@@ -153,18 +141,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>4</channel>
-                                    <name><![CDATA[modulating[0]]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>5</row>
-                                    <viewports>
-                                        <num_viewport>3</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>5</channel>
                                     <name><![CDATA[VSC1-FMeter.VAB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
@@ -175,35 +151,13 @@ SETTINGS_DIR = get_settings_dir_path()
                                    </viewports>
                                </analog>
                                 <analog>
-                                    <channel>6</channel>
-                                    <name><![CDATA[modulating[1]]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>6</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>7</channel>
-                                    <name><![CDATA[modulating[2]]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>7</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>8</channel>
+                                    <channel>5</channel>
                                     <name><![CDATA[STEADY_STATE_FB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
-                                    <row>8</row>
+                                    <row>5</row>
                                     <viewports>
                                         <num_viewport>4</num_viewport>
                                    </viewports>
@@ -237,22 +191,21 @@ SETTINGS_DIR = get_settings_dir_path()
                             <analog_signals>
                                 <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[DC Bus.VC2]]></name>
+                                    <name><![CDATA[TEST_FLAG_FB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
-                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[modulating[0]]]></name>
+                                    <name><![CDATA[VSC1-FMeter.VAB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -260,10 +213,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[modulating[1]]]></name>
+                                    <name><![CDATA[VSC1-FMeter.VBC]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -271,10 +224,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[modulating[2]]]></name>
+                                    <name><![CDATA[VSC1-FMeter.VCA]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
@@ -282,10 +235,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>4</channel>
-                                    <name><![CDATA[TEST_FLAG_FB]]></name>
+                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
@@ -293,10 +246,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>5</channel>
-                                    <name><![CDATA[VSC1-FMeter.VAB]]></name>
+                                    <name><![CDATA[VSC1-Meter.VBC]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
@@ -304,67 +257,12 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>6</channel>
-                                    <name><![CDATA[VSC1-FMeter.VBC]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>6</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>7</channel>
-                                    <name><![CDATA[VSC1-FMeter.VCA]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>7</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>8</channel>
-                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>8</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>9</channel>
-                                    <name><![CDATA[VSC1-Meter.VBC]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>9</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>10</channel>
                                     <name><![CDATA[VSC1-Meter.VCA]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
-                                    <row>10</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>11</channel>
-                                    <name><![CDATA[DC Bus.I0]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>11</row>
+                                    <row>6</row>
                                     <viewports>
                                    </viewports>
                                </analog>
@@ -375,7 +273,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             </virtual_signals>
                             <trigger>
                                 <device>0</device>
-                                <is_force>False</is_force>
+                                <is_force>True</is_force>
                                 <type>Analog</type>
                                 <source><![CDATA[TEST_FLAG_FB]]></source>
                                 <edge>Rising edge</edge>
@@ -409,7 +307,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[VC_AB0[0]]]></name>
+                                    <name><![CDATA[V0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -421,72 +319,120 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[ILF0_AB0[0]]]></name>
+                                    <name><![CDATA[VC_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
-                                        <num_viewport>2</num_viewport>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[ILF_AB0[0]]]></name>
+                                    <name><![CDATA[VC_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
-                                        <num_viewport>2</num_viewport>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>4</channel>
-                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
+                                    <name><![CDATA[ILF0_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
+                                        <num_viewport>2</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>5</channel>
-                                    <name><![CDATA[modulating[0]]]></name>
+                                    <name><![CDATA[ILF0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
-                                        <num_viewport>4</num_viewport>
+                                        <num_viewport>2</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>6</channel>
-                                    <name><![CDATA[modulating[1]]]></name>
+                                    <name><![CDATA[ILF_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
-                                        <num_viewport>4</num_viewport>
+                                        <num_viewport>2</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>7</channel>
-                                    <name><![CDATA[modulating[2]]]></name>
+                                    <name><![CDATA[ILF_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>7</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>8</channel>
+                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>8</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>9</channel>
+                                    <name><![CDATA[MOD[0]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>9</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>10</channel>
+                                    <name><![CDATA[MOD[1]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>10</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>11</channel>
+                                    <name><![CDATA[MOD[2]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>11</row>
                                     <viewports>
                                         <num_viewport>4</num_viewport>
                                    </viewports>
@@ -498,7 +444,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             </virtual_signals>
                             <trigger>
                                 <device>0</device>
-                                <is_force>False</is_force>
+                                <is_force>True</is_force>
                                 <type>Analog</type>
                                 <source><![CDATA[V0_AB0[0]]]></source>
                                 <edge>Rising edge</edge>
@@ -520,25 +466,25 @@ SETTINGS_DIR = get_settings_dir_path()
                             <analog_signals>
                                 <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[DC Bus.VC2]]></name>
+                                    <name><![CDATA[TEST_FLAG_FB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
-                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[TEST_FLAG_FB]]></name>
+                                    <name><![CDATA[DC Bus.VC2]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                             </analog_signals>
@@ -548,7 +494,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             </virtual_signals>
                             <trigger>
                                 <device>0</device>
-                                <is_force>False</is_force>
+                                <is_force>True</is_force>
                                 <type>Analog</type>
                                 <source><![CDATA[TEST_FLAG_FB]]></source>
                                 <edge>Rising edge</edge>
@@ -565,16 +511,16 @@ SETTINGS_DIR = get_settings_dir_path()
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
-                            <show_viewports>2</show_viewports>
-                            <decimation>6.0</decimation>
+                            <show_viewports>4</show_viewports>
+                            <decimation>51</decimation>
                             <time_base>0.01</time_base>
                             <analog_signals>
                                 <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[VSC1-FMeter.VAB]]></name>
+                                    <name><![CDATA[V0_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
@@ -583,10 +529,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[VSC1-FMeter.VBC]]></name>
+                                    <name><![CDATA[V0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -595,10 +541,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[VSC1-FMeter.VCA]]></name>
+                                    <name><![CDATA[VC_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -607,22 +553,22 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[modulating[0]]]></name>
+                                    <name><![CDATA[VC_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
-                                        <num_viewport>2</num_viewport>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
                                     <channel>4</channel>
-                                    <name><![CDATA[modulating[1]]]></name>
+                                    <name><![CDATA[ILF0_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
@@ -631,14 +577,86 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>5</channel>
-                                    <name><![CDATA[modulating[2]]]></name>
+                                    <name><![CDATA[ILF0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
                                         <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>6</channel>
+                                    <name><![CDATA[ILF_AB0[0]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>6</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>7</channel>
+                                    <name><![CDATA[ILF_AB0[1]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>7</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>8</channel>
+                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>8</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>9</channel>
+                                    <name><![CDATA[VSC1-Meter.IA]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>9</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>10</channel>
+                                    <name><![CDATA[VSC1-Meter.IB]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>10</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>11</channel>
+                                    <name><![CDATA[VSC1-Meter.IC]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>11</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
                                    </viewports>
                                </analog>
                             </analog_signals>
@@ -648,10 +666,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                 <device>0</device>
                                 <is_force>False</is_force>
                                 <type>Analog</type>
-                                <source>VSC1-FMeter.VAB</source>
+                                <source>V0_AB0[0]</source>
                                 <edge>Rising edge</edge>
                                 <treshold>0.0</treshold>
-                                <offset>50</offset>
+                                <offset>0.0</offset>
                                 <useFirstTrigger>False</useFirstTrigger>
                             </trigger>
                         </scope>
@@ -673,25 +691,25 @@ SETTINGS_DIR = get_settings_dir_path()
                         <analog_signals>
                             <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[DC Bus.VC2]]></name>
+                                    <name><![CDATA[TEST_FLAG_FB]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
-                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[TEST_FLAG_FB]]></name>
+                                    <name><![CDATA[DC Bus.VC2]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                         </analog_signals>
@@ -706,18 +724,18 @@ SETTINGS_DIR = get_settings_dir_path()
                         <trigger>
                             <mode>Auto</mode>
                             <type>Analog</type>
-                            <source>VSC1-FMeter.VAB</source>
+                            <source>V0_AB0[0]</source>
                             <edge>Rising edge</edge>
                             <treshold>0.0</treshold>
-                            <offset>50</offset>
+                            <offset>0.0</offset>
                         </trigger>
                          <analog_signals>
                             <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[VSC1-FMeter.VAB]]></name>
+                                    <name><![CDATA[V0_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
@@ -726,10 +744,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[VSC1-FMeter.VBC]]></name>
+                                    <name><![CDATA[V0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -738,10 +756,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[VSC1-FMeter.VCA]]></name>
+                                    <name><![CDATA[VC_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -750,22 +768,22 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[modulating[0]]]></name>
+                                    <name><![CDATA[VC_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
-                                        <num_viewport>2</num_viewport>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
                                     <channel>4</channel>
-                                    <name><![CDATA[modulating[1]]]></name>
+                                    <name><![CDATA[ILF0_AB0[0]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
@@ -774,14 +792,86 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>5</channel>
-                                    <name><![CDATA[modulating[2]]]></name>
+                                    <name><![CDATA[ILF0_AB0[1]]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
                                         <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>6</channel>
+                                    <name><![CDATA[ILF_AB0[0]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>6</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>7</channel>
+                                    <name><![CDATA[ILF_AB0[1]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>7</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>8</channel>
+                                    <name><![CDATA[VSC1-Meter.VAB]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>8</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>9</channel>
+                                    <name><![CDATA[VSC1-Meter.IA]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>9</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>10</channel>
+                                    <name><![CDATA[VSC1-Meter.IB]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>10</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>11</channel>
+                                    <name><![CDATA[VSC1-Meter.IC]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>11</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
                                    </viewports>
                                </analog>
                         </analog_signals>
@@ -1470,7 +1560,7 @@ widgetValue = None
 widgetValue = hil.model_read('Grid Load.Load.Qref')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[-1.0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>-1.0</min>
                 <max>1.0</max>
                 <step>0.05</step>
@@ -1689,7 +1779,7 @@ displayValue = False
                     <x>1744</x>
                     <y>576</y>
                     <width>696</width>
-                    <height>264</height>
+                    <height>224</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <collapsed>False</collapsed>
                     <hierarchy_position>1</hierarchy_position>
@@ -1757,7 +1847,7 @@ widgetValue = hil.model_read('v_line_rms')
                 <max>619.43</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>24</x>
+                    <x>48</x>
                     <y>16</y>
                     <width>288</width>
                     <height>48</height>
@@ -1827,8 +1917,8 @@ widgetValue = hil.model_read('Modulation.Upper_Carrier.frequency')
                 <max>40000.0</max>
                 <step>1000.0</step>
                 <widget_settings>
-                    <x>24</x>
-                    <y>80</y>
+                    <x>48</x>
+                    <y>72</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1890,13 +1980,13 @@ widgetValue = None
 widgetValue = hil.model_read('KR')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[11.5]]></inputValue>
+                <inputValue><![CDATA[11.0]]></inputValue>
                 <min>0.1</min>
                 <max>50.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>368</x>
-                    <y>80</y>
+                    <x>352</x>
+                    <y>72</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2122,7 +2212,7 @@ widgetValue = hil.model_read('C')
                 <max>40000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>368</x>
+                    <x>352</x>
                     <y>16</y>
                     <width>288</width>
                     <height>48</height>
@@ -2190,8 +2280,8 @@ widgetValue = hil.model_read('KP')
                 <max>10000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>368</x>
-                    <y>152</y>
+                    <x>352</x>
+                    <y>128</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>

@@ -101,6 +101,7 @@ ss_gpr = d2c(ss_gprd);
 [Rc, Tc, Cc, Dc] = ssdata(ss_gpr);
 [num, den] = ss2tf(Rc, Tc, Cc, Dc);
 gpr = tf(num, den)
+bode(gpr)
 
 %% MODELO BASE: Controlador de Tensão
 kr = 11;

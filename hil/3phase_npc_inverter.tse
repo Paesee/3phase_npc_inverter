@@ -9,7 +9,7 @@ model "3phase_npc_inverter" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = .25e-6
+        simulation_time_step = .1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -484,7 +484,7 @@ model "3phase_npc_inverter" {
             ]
         }
         [
-            position = 8568, 8152
+            position = 8584, 8128
             hide_name = True
             size = 112, 232
         ]
@@ -663,7 +663,7 @@ model "3phase_npc_inverter" {
             connect Rcg.n_node Ilcg.p_node as Connection54
         }
         [
-            position = 8952, 8152
+            position = 8968, 8128
             hide_name = True
             size = 112, 232
         ]
@@ -712,7 +712,7 @@ model "3phase_npc_inverter" {
             connect Load.C Va_in as Connection21
         }
         [
-            position = 9160, 8152
+            position = 9176, 8128
             hide_name = True
             size = 112, 232
         ]
@@ -726,7 +726,7 @@ model "3phase_npc_inverter" {
             remove_snubber = "True"
         }
         [
-            position = 8408, 8152
+            position = 8424, 8128
             hide_name = True
             size = 56, 240
         ]
@@ -745,7 +745,7 @@ model "3phase_npc_inverter" {
             remove_snubber = "True"
         }
         [
-            position = 8744, 8152
+            position = 8760, 8128
             hide_name = True
             size = 56, 240
         ]
@@ -754,7 +754,7 @@ model "3phase_npc_inverter" {
             snb_type_i = "R1-C1"
         }
         [
-            position = 8832, 8152
+            position = 8848, 8128
             hide_name = True
             size = 12, 256
         ]
@@ -762,7 +762,7 @@ model "3phase_npc_inverter" {
         component "core/Product" 1byVdc2 {
         }
         [
-            position = 8048, 8480
+            position = 7848, 8600
             hide_name = True
         ]
 
@@ -770,7 +770,7 @@ model "3phase_npc_inverter" {
             gain = "SQRT2_3"
         }
         [
-            position = 7960, 8432
+            position = 7760, 8552
             hide_name = True
         ]
 
@@ -782,7 +782,7 @@ model "3phase_npc_inverter" {
             unit = ""
         }
         [
-            position = 7904, 8432
+            position = 7704, 8552
         ]
 
         component "core/Sinusoidal Source" sine_a {
@@ -790,7 +790,7 @@ model "3phase_npc_inverter" {
             frequency = "60"
         }
         [
-            position = 7904, 8488
+            position = 7704, 8608
         ]
 
         component "core/Sinusoidal Source" sine_b {
@@ -799,7 +799,7 @@ model "3phase_npc_inverter" {
             phase = "-120"
         }
         [
-            position = 7904, 8544
+            position = 7704, 8664
         ]
 
         component "core/Sinusoidal Source" sine_c {
@@ -808,20 +808,20 @@ model "3phase_npc_inverter" {
             phase = "120"
         }
         [
-            position = 7904, 8600
+            position = 7704, 8720
         ]
 
         component "core/Product" 1byVdc3 {
         }
         [
-            position = 8048, 8536
+            position = 7848, 8656
             hide_name = True
         ]
 
         component "core/Product" 1byVdc4 {
         }
         [
-            position = 8048, 8592
+            position = 7848, 8712
             hide_name = True
         ]
 
@@ -830,7 +830,7 @@ model "3phase_npc_inverter" {
             inputs = "3"
         }
         [
-            position = 8152, 8536
+            position = 7952, 8656
             hide_name = True
         ]
 
@@ -839,7 +839,7 @@ model "3phase_npc_inverter" {
             value = "VDC"
         }
         [
-            position = 7904, 8656
+            position = 7704, 8776
         ]
 
         component "core/C function" MEAS_CLARKE {
@@ -918,7 +918,8 @@ OUT_I0_AB0[2] = i0_0;
             output_terminals_show_labels = "False;False;False"
         }
         [
-            position = 8504, 8480
+            position = 8248, 8584
+            hide_name = True
             size = 48, 120
         ]
 
@@ -968,7 +969,8 @@ OUT_V0_AB0[2] = 0;
             output_terminals_show_labels = "False"
         }
         [
-            position = 8504, 8792
+            position = 8248, 8776
+            hide_name = True
             size = 48, 48
         ]
 
@@ -1011,7 +1013,7 @@ SS_I_GAINS[1] = -2.938904663320472e-01; //-0.9946; // V_{C}
 SS_I_GAINS[2] = 0; //+0.9946; // U
 
 // Output limitation
-UV_BOUNDARY = 520; // I_BASE * 1.25
+UV_BOUNDARY = 700; // I_BASE * 1.25 = 520
 UI_BOUNDARY = 1000;
 // Ressonant Control
 A = 0.1;
@@ -1039,7 +1041,7 @@ ui_bounded = 0;
 //// VOLTAGE CONTROL LOOP ////
 
 // Calculate voltage loop control action
-uv = - (SS_V_GAINS[0] * IN_ILF) - (SS_V_GAINS[1] * IN_VC)  - (SS_V_GAINS[2] * ui) - (SS_V_GAINS[3] * xc_1) - (SS_V_GAINS[4] * xc_2);
+uv = - (SS_V_GAINS[0] * IN_ILF) - (SS_V_GAINS[1] * IN_VC)  - (SS_V_GAINS[2] * ui_bounded) - (SS_V_GAINS[3] * xc_1) - (SS_V_GAINS[4] * xc_2);
 
 // Execute output limitation function
 uv_bounded = uv;
@@ -1075,28 +1077,29 @@ OUT_ILF_REF = uv_bounded;
             output_terminals_show_labels = "False;False"
         }
         [
-            position = 8920, 8544
+            position = 8656, 8656
+            hide_name = True
             size = 120, 248
         ]
 
         component "core/Bus Selector" "Bus Selector1" {
         }
         [
-            position = 8800, 8448
+            position = 8536, 8560
             hide_name = True
         ]
 
         component "core/Bus Selector" "Bus Selector2" {
         }
         [
-            position = 8800, 8512
+            position = 8536, 8624
             hide_name = True
         ]
 
         component "core/Bus Selector" "Bus Selector3" {
         }
         [
-            position = 8800, 8576
+            position = 8536, 8688
             hide_name = True
         ]
 
@@ -1104,7 +1107,7 @@ OUT_ILF_REF = uv_bounded;
             signal_indexes = "[1]"
         }
         [
-            position = 8800, 8792
+            position = 8536, 8920
             hide_name = True
         ]
 
@@ -1112,7 +1115,7 @@ OUT_ILF_REF = uv_bounded;
             signal_indexes = "[1]"
         }
         [
-            position = 8800, 8856
+            position = 8536, 8984
             hide_name = True
         ]
 
@@ -1120,7 +1123,7 @@ OUT_ILF_REF = uv_bounded;
             signal_indexes = "[1]"
         }
         [
-            position = 8800, 8920
+            position = 8536, 9048
             hide_name = True
         ]
 
@@ -1133,7 +1136,7 @@ OUT_ILF_REF = uv_bounded;
             unit = ""
         }
         [
-            position = 7904, 8792
+            position = 7704, 8912
         ]
 
         component Subsystem Modulation {
@@ -1325,6 +1328,7 @@ if (vc > IN_LOWER_CARRIER){
             }
             [
                 position = 7448, 8088
+                hide_name = True
             ]
 
             port Gate_Signals {
@@ -1338,6 +1342,7 @@ if (vc > IN_LOWER_CARRIER){
             }
             [
                 position = 8200, 8176
+                hide_name = True
             ]
 
             junction Junction1 sp
@@ -1422,15 +1427,16 @@ if (vc > IN_LOWER_CARRIER){
             connect Gain2.out Junction2 as Connection66
         }
         [
-            position = 9440, 8816
-            size = 120, 88
+            position = 9064, 8960
+            hide_name = True
+            size = 48, 48
         ]
 
         component "core/Bus Join" "Bus Join3" {
             inputs = "3"
         }
         [
-            position = 9416, 8440
+            position = 8976, 8568
             hide_name = True
         ]
 
@@ -1469,7 +1475,7 @@ err = 500 - IN_VDC_2;
 i0 = IN_KP *  err + 0 * (err_kminus + err * 0.00005);
 
 // Geometric Modulation Execution
-v0 = geoMod_computeV0(i0, IN_M[2], IN_M[0], IN_M[1], IN_ILF[0], IN_ILF[1], IN_ILF[2]);
+v0 = computeV0(i0, IN_M[2], IN_M[0], IN_M[1], IN_ILF[0], IN_ILF[1], IN_ILF[2]);
 
 // Output handling
 OUT_V_AB0[0] = IN_M[0];
@@ -1485,15 +1491,9 @@ err_kminus = err;
             output_terminals_show_labels = "False"
         }
         [
-            position = 9504, 8552
+            position = 9064, 8680
             hide_name = True
             size = 48, 264
-        ]
-
-        component "core/Probe" modulating {
-        }
-        [
-            position = 9712, 8608
         ]
 
         component "core/SCADA Input" TEST_FLAG {
@@ -1506,7 +1506,7 @@ err_kminus = err;
             unit = ""
         }
         [
-            position = 9312, 8144
+            position = 9232, 9088
         ]
 
         component "core/Probe" TEST_FLAG_FB {
@@ -1514,7 +1514,7 @@ err_kminus = err;
             signal_access = "Inherit"
         }
         [
-            position = 9440, 8144
+            position = 9416, 9088
         ]
 
         component "core/SCADA Input" STEADY_STATE {
@@ -1527,7 +1527,7 @@ err_kminus = err;
             unit = ""
         }
         [
-            position = 9312, 8224
+            position = 9232, 9152
         ]
 
         component "core/Probe" STEADY_STATE_FB {
@@ -1535,7 +1535,7 @@ err_kminus = err;
             signal_access = "Inherit"
         }
         [
-            position = 9440, 8224
+            position = 9416, 9152
         ]
 
         component "core/Thermal network" Heatsink {
@@ -1547,14 +1547,14 @@ err_kminus = err;
             network_type = "Cauer"
         }
         [
-            position = 8656, 7784
+            position = 8624, 7744
             size = 64, 86
         ]
 
         component "core/Probe" heatsink_pout {
         }
         [
-            position = 8768, 7752
+            position = 8736, 7712
         ]
 
         component "core/Probe" p_loss {
@@ -1562,7 +1562,7 @@ err_kminus = err;
             signal_type = "active power"
         }
         [
-            position = 9088, 7752
+            position = 9056, 7712
         ]
 
         component "core/Probe" t_junction {
@@ -1570,14 +1570,14 @@ err_kminus = err;
             signal_type = "temperature"
         }
         [
-            position = 9088, 7816
+            position = 9056, 7776
         ]
 
         component "core/Sum" Sum1 {
             signs = "+"
         }
         [
-            position = 9008, 7752
+            position = 8976, 7712
         ]
 
         component "core/Three Phase NPC Inverter" "Three Phase NPC Inverter1" {
@@ -1610,6 +1610,7 @@ err_kminus = err;
             et_on_table_out_g1 = "[[[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0022240199999999997, 0.0021333199999999997, 0.0020426199999999998, 0.00198993, 0.00218892], [0.00355001, 0.00363138, 0.0037127500000000003, 0.00375344, 0.00412878]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.00284652, 0.00275028, 0.0026540400000000003, 0.00264145, 0.00290559], [0.00451589, 0.004577009999999999, 0.004638130000000001, 0.00466869, 0.00513556]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0034725100000000003, 0.00337015, 0.0032678, 0.00329435, 0.00362379], [0.0054840900000000005, 0.00552586, 0.0055676300000000005, 0.0055885100000000005, 0.00614736]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.00410198, 0.00399294, 0.0038839, 0.003948640000000001, 0.00434351], [0.0064546099999999995, 0.00647793, 0.00650124, 0.0065129, 0.00716419]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0066547099999999994, 0.00651322, 0.00637172, 0.00657965, 0.00723761], [0.0103598, 0.0103183, 0.0102769, 0.0102561, 0.0112817]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.009263210000000001, 0.0090801, 0.00889699, 0.00923279, 0.010156100000000001], [0.0143021, 0.014210200000000001, 0.0141183, 0.0140724, 0.0154796]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0119275, 0.0116936, 0.0114597, 0.0119081, 0.0130989], [0.0182813, 0.018153500000000003, 0.018025600000000003, 0.0179617, 0.0197579]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0146475, 0.0143537, 0.0140599, 0.0146055, 0.0160661], [0.0222977, 0.0221482, 0.0219988, 0.0219241, 0.0241165]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.017423200000000003, 0.017060400000000003, 0.016697600000000003, 0.0173251, 0.0190576], [0.026351, 0.026194400000000003, 0.0260378, 0.0259596, 0.028555499999999998]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0202548, 0.0198137, 0.0193727, 0.020066800000000003, 0.0220735], [0.030441400000000004, 0.030292100000000002, 0.0301427, 0.0300681, 0.0330749]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0231421, 0.0226136, 0.0220852, 0.0228306, 0.025113700000000003], [0.034568800000000004, 0.0344411, 0.0343135, 0.034249600000000005, 0.037674599999999996]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0260851, 0.025460200000000002, 0.0248352, 0.0256166, 0.0281783], [0.0387333, 0.0386417, 0.038550100000000004, 0.0385043, 0.0423547]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0290839, 0.0283533, 0.0276227, 0.0284248, 0.0312673], [0.0429348, 0.0428936, 0.0428525, 0.042832, 0.0471151]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0320827, 0.0312464, 0.0304102, 0.031233, 0.03435629999999999], [0.047136300000000006, 0.04714549999999999, 0.0471549, 0.047159700000000006, 0.0518755]]]"
             et_on_table_out_g2 = "[[[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0022240199999999997, 0.0021333199999999997, 0.0020426199999999998, 0.00198993, 0.00218892], [0.00355001, 0.00363138, 0.0037127500000000003, 0.00375344, 0.00412878]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.00284652, 0.00275028, 0.0026540400000000003, 0.00264145, 0.00290559], [0.00451589, 0.004577009999999999, 0.004638130000000001, 0.00466869, 0.00513556]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0034725100000000003, 0.00337015, 0.0032678, 0.00329435, 0.00362379], [0.0054840900000000005, 0.00552586, 0.0055676300000000005, 0.0055885100000000005, 0.00614736]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.00410198, 0.00399294, 0.0038839, 0.003948640000000001, 0.00434351], [0.0064546099999999995, 0.00647793, 0.00650124, 0.0065129, 0.00716419]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0066547099999999994, 0.00651322, 0.00637172, 0.00657965, 0.00723761], [0.0103598, 0.0103183, 0.0102769, 0.0102561, 0.0112817]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.009263210000000001, 0.0090801, 0.00889699, 0.00923279, 0.010156100000000001], [0.0143021, 0.014210200000000001, 0.0141183, 0.0140724, 0.0154796]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0119275, 0.0116936, 0.0114597, 0.0119081, 0.0130989], [0.0182813, 0.018153500000000003, 0.018025600000000003, 0.0179617, 0.0197579]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0146475, 0.0143537, 0.0140599, 0.0146055, 0.0160661], [0.0222977, 0.0221482, 0.0219988, 0.0219241, 0.0241165]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.017423200000000003, 0.017060400000000003, 0.016697600000000003, 0.0173251, 0.0190576], [0.026351, 0.026194400000000003, 0.0260378, 0.0259596, 0.028555499999999998]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0202548, 0.0198137, 0.0193727, 0.020066800000000003, 0.0220735], [0.030441400000000004, 0.030292100000000002, 0.0301427, 0.0300681, 0.0330749]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0231421, 0.0226136, 0.0220852, 0.0228306, 0.025113700000000003], [0.034568800000000004, 0.0344411, 0.0343135, 0.034249600000000005, 0.037674599999999996]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0260851, 0.025460200000000002, 0.0248352, 0.0256166, 0.0281783], [0.0387333, 0.0386417, 0.038550100000000004, 0.0385043, 0.0423547]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0290839, 0.0283533, 0.0276227, 0.0284248, 0.0312673], [0.0429348, 0.0428936, 0.0428525, 0.042832, 0.0471151]], [[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0], [0.0320827, 0.0312464, 0.0304102, 0.031233, 0.03435629999999999], [0.047136300000000006, 0.04714549999999999, 0.0471549, 0.047159700000000006, 0.0518755]]]"
             execution_rate = "TS_01MHZ"
+            fixed_delay = "50e-9"
             fvd_def_method_g1 = "LUT"
             fvd_def_method_g2 = "LUT"
             fvd_def_method_g3 = "LUT"
@@ -1635,7 +1636,7 @@ err_kminus = err;
             vd_table_out_g2 = "[[0.0, 0.0, 0.0, 0.0, 0.0], [3.366, 3.1846666666666668, 3.025, 2.959, 2.905], [3.673, 3.477, 3.306, 3.237, 3.176], [3.895, 3.6883333333333335, 3.508, 3.437, 3.372], [4.078, 3.8613333333333335, 3.672, 3.597, 3.528], [4.62, 4.371333333333333, 4.153, 4.068, 3.985], [5.02, 4.74, 4.5, 4.409, 4.321], [5.347, 5.043666666666667, 4.781, 4.684, 4.588], [5.631, 5.303000000000001, 5.024, 4.922, 4.829], [5.884, 5.534000000000001, 5.237, 5.131, 5.028], [6.112, 5.740666666666667, 5.428, 5.32, 5.213], [6.323, 5.932333333333334, 5.604, 5.491, 5.376], [6.519, 6.109, 5.767, 5.648, 5.527], [6.704, 6.277333333333333, 5.921, 5.8, 5.677], [6.888999999999999, 6.445666666666667, 6.075, 5.952, 5.826999999999999]]"
         }
         [
-            position = 8192, 8152
+            position = 8208, 8128
             hide_name = True
             size = 127, 256
         ]
@@ -1649,14 +1650,14 @@ err_kminus = err;
             unit = "ºC"
         }
         [
-            position = 8112, 7792
+            position = 8080, 7752
         ]
 
         component "core/Bus Join" "Bus Join5" {
             inputs = "6"
         }
         [
-            position = 8232, 7792
+            position = 8200, 7752
             hide_name = True
         ]
 
@@ -1664,7 +1665,7 @@ err_kminus = err;
             inputs = "3"
         }
         [
-            position = 8352, 7792
+            position = 8320, 7752
             hide_name = True
         ]
 
@@ -1708,8 +1709,9 @@ OUT_V[2] = vcn;
             output_terminals_show_labels = "False"
         }
         [
-            position = 9592, 8552
-            size = 48, 80
+            position = 8248, 8936
+            hide_name = True
+            size = 48, 48
         ]
 
         component "core/SCADA Input" C {
@@ -1721,7 +1723,7 @@ OUT_V[2] = vcn;
             unit = "uF"
         }
         [
-            position = 7904, 8856
+            position = 7704, 8976
         ]
 
         component Subsystem "DC Bus" {
@@ -1730,16 +1732,7 @@ OUT_V[2] = vcn;
                 resistance = "VDC_RESISTANCE"
             }
             [
-                position = 8232, 8216
-                hide_name = True
-            ]
-
-            component "core/Voltage Source" VDC_2 {
-                init_const_value = "VDC_2"
-            }
-            [
-                position = 7880, 8312
-                rotation = right
+                position = 8336, 8216
                 hide_name = True
             ]
 
@@ -1775,12 +1768,21 @@ OUT_V[2] = vcn;
                 size = 64, 32
             ]
 
+            component "core/Voltage Source" VDC_2 {
+                init_const_value = "VDC"
+            }
+            [
+                position = 7888, 8312
+                rotation = right
+                hide_name = True
+            ]
+
             component "core/Variable Capacitor" C2 {
                 enb_resistance = "False"
                 resistance = "1e-3"
             }
             [
-                position = 8032, 8264
+                position = 8040, 8264
                 rotation = right
                 hide_name = True
                 scale = -1, 1
@@ -1792,11 +1794,45 @@ OUT_V[2] = vcn;
                 resistance = "1e-3"
             }
             [
-                position = 8032, 8360
+                position = 8040, 8368
                 rotation = right
                 hide_name = True
                 scale = -1, 1
                 size = 64, 48
+            ]
+
+            component "core/Voltage Source" VDC_3 {
+                init_const_value = "VDC_2"
+            }
+            [
+                position = 7608, 8000
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Voltage Source" VDC_4 {
+                init_const_value = "VDC_2"
+            }
+            [
+                position = 7608, 7896
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Resistor" R2 {
+                resistance = "VDC_RESISTANCE"
+            }
+            [
+                position = 8336, 8312
+                hide_name = True
+            ]
+
+            component "core/Resistor" R3 {
+                resistance = "VDC_RESISTANCE"
+            }
+            [
+                position = 8336, 8416
+                hide_name = True
             ]
 
             port DC+ {
@@ -1849,93 +1885,90 @@ OUT_V[2] = vcn;
                 }
             }
             [
-                position = 7944, 8312
-            ]
-
-            junction Junction66 pe
-            [
-                position = 8120, 8312
-            ]
-
-            junction Junction67 pe
-            [
-                position = 8120, 8312
-            ]
-
-            junction Junction68 pe
-            [
-                position = 8032, 8312
-            ]
-
-            junction Junction69 pe
-            [
-                position = 8120, 8416
-            ]
-
-            junction Junction70 pe
-            [
-                position = 8120, 8216
+                position = 7952, 8312
             ]
 
             junction Junction71 sp
             [
-                position = 7992, 8312
+                position = 8000, 8312
             ]
 
             junction Junction72 pe
             [
-                position = 8032, 8216
+                position = 8120, 8216
             ]
 
             junction Junction73 pe
             [
-                position = 8032, 8416
+                position = 8120, 8416
+            ]
+
+            junction Junction74 pe
+            [
+                position = 8040, 8216
+            ]
+
+            junction Junction75 pe
+            [
+                position = 8040, 8416
+            ]
+
+            junction Junction76 pe
+            [
+                position = 8120, 8312
+            ]
+
+            junction Junction77 pe
+            [
+                position = 8040, 8312
             ]
 
             connect DC+ R1.n_node as Connection7400
             connect VC2.out VDC2 as Connection7402
-            connect VC2.p_node Junction66 as Connection7302
-            connect Junction66 VC1.n_node as Connection7303
-            connect I0.n_node Junction67 as Connection7482
-            [
-                breakpoints = 8208, 8312
-            ]
-            connect Junction67 Junction66 as Connection7483
-            [
-                breakpoints = 8120, 8312
-            ]
-            connect C2.n_node Junction68 as Connection7484
-            connect Junction68 C3.p_node as Connection7485
-            [
-                breakpoints = 8032, 8312
-            ]
-            connect Junction67 Junction68 as Connection7486
-            connect DC- Junction69 as Connection7487
-            connect Junction69 VC2.n_node as Connection7488
-            [
-                breakpoints = 8120, 8416; 8120, 8416; 8120, 8416
-            ]
-            connect VC1.p_node Junction70 as Connection7490
-            connect Junction70 R1.p_node as Connection7491
-            [
-                breakpoints = 8120, 8216; 8120, 8216
-            ]
+            connect C Junction71 as Connection7495
             connect C3.In Junction71 as Connection7493
             connect Junction71 C2.In as Connection7494
             [
-                breakpoints = 7992, 8312; 7992, 8312; 7992, 8312; 7992, 8312; 7992, 8264
+                breakpoints = 8000, 8320; 8000, 8320; 8000, 8320; 8000, 8320; 8000, 8272
             ]
-            connect C Junction71 as Connection7495
-            connect C2.p_node Junction72 as Connection7496
-            connect Junction72 Junction70 as Connection7497
-            connect VDC_2.p_node Junction72 as Connection7498
-            connect C3.n_node Junction73 as Connection7499
-            connect Junction73 Junction69 as Connection7500
-            connect VDC_2.n_node Junction73 as Connection7501
-            connect I0.p_node DCn as Connection7502
+            connect VDC_3.p_node VDC_4.n_node as Connection7522
+            [
+                breakpoints = 7608, 7952
+            ]
+            connect R1.p_node Junction72 as Connection7523
+            connect Junction72 VC1.p_node as Connection7524
+            [
+                breakpoints = 8120, 8216; 8120, 8216; 8120, 8216; 8120, 8216
+            ]
+            connect Junction73 VC2.n_node as Connection7527
+            [
+                breakpoints = 8120, 8416; 8120, 8416; 8120, 8416; 8120, 8416; 8120, 8416
+            ]
+            connect C2.p_node Junction74 as Connection7529
+            connect Junction74 Junction72 as Connection7530
+            connect VDC_2.p_node Junction74 as Connection7531
+            connect C3.n_node Junction75 as Connection7532
+            connect Junction75 Junction73 as Connection7533
+            connect VDC_2.n_node Junction75 as Connection7534
+            connect I0.p_node R2.p_node as Connection7536
+            connect R2.n_node DCn as Connection7537
+            connect VC1.n_node Junction76 as Connection7538
+            connect Junction76 VC2.p_node as Connection7539
+            [
+                breakpoints = 8120, 8312
+            ]
+            connect I0.n_node Junction76 as Connection7540
+            connect DC- R3.n_node as Connection7541
+            connect R3.p_node Junction73 as Connection7542
+            connect C2.n_node Junction77 as Connection7543
+            connect Junction77 C3.p_node as Connection7544
+            [
+                breakpoints = 8040, 8320; 8040, 8320
+            ]
+            connect Junction76 Junction77 as Connection7545
         }
         [
-            position = 7968, 8152
+            position = 7984, 8128
             hide_name = True
             size = 112, 240
         ]
@@ -1949,23 +1982,17 @@ OUT_V[2] = vcn;
             unit = ""
         }
         [
-            position = 7904, 8912
+            position = 7704, 9032
         ]
 
         component "core/Gain" Gain1 {
             gain = "1e-6"
         }
         [
-            position = 8064, 8856
+            position = 7888, 8976
         ]
 
-        component "core/Probe" modulating1 {
-        }
-        [
-            position = 9712, 8672
-        ]
-
-        component "core/C function" INNER_LOOP_ALPHA1 {
+        component "core/C function" INNER_LOOP_BETA {
             arb_defs = "/*Begin code section*/
 // Constants
 float SS_V_GAINS[] = {0, 0, 0, 0, 0};
@@ -2004,7 +2031,7 @@ SS_I_GAINS[1] = -2.938904663320472e-01; //-0.9946; // V_{C}
 SS_I_GAINS[2] = 0; //+0.9946; // U
 
 // Output limitation
-UV_BOUNDARY = 520; // I_BASE * 1.25
+UV_BOUNDARY = 700; // I_BASE * 1.25
 UI_BOUNDARY = 1000;
 // Ressonant Control
 A = 0.1;
@@ -2068,51 +2095,52 @@ OUT_ILF_REF = uv_bounded;
             output_terminals_show_labels = "False;False"
         }
         [
-            position = 8920, 8888
+            position = 8656, 9016
+            hide_name = True
             size = 120, 248
-        ]
-
-        component "core/Probe" ual {
-        }
-        [
-            position = 9080, 8480
-        ]
-
-        component "core/Probe" ube {
-        }
-        [
-            position = 9088, 8824
         ]
 
         component "core/Probe" V0_AB0 {
         }
         [
-            position = 10200, 8472
+            position = 9416, 8712
         ]
 
         component "core/Probe" VC_AB0 {
         }
         [
-            position = 10200, 8536
+            position = 9416, 8776
         ]
 
         component "core/Probe" ILF0_AB0 {
         }
         [
-            position = 10200, 8664
+            position = 9416, 8896
         ]
 
         component "core/Probe" ILF_AB0 {
         }
         [
-            position = 10200, 8744
+            position = 9416, 8976
         ]
 
         component "core/Bus Join" "Bus Join9" {
         }
         [
-            position = 10136, 8664
+            position = 9352, 8896
             hide_name = True
+        ]
+
+        component "core/Probe" U {
+        }
+        [
+            position = 9416, 8592
+        ]
+
+        component "core/Probe" MOD {
+        }
+        [
+            position = 9416, 8656
         ]
 
         tag Goto9 {
@@ -2122,7 +2150,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8536, 7984
+            position = 8552, 7944
             rotation = left
             hide_name = True
             size = 60, 20
@@ -2135,7 +2163,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8600, 7984
+            position = 8616, 7944
             rotation = left
             hide_name = True
             size = 60, 20
@@ -2148,7 +2176,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8952, 7984
+            position = 8968, 7944
             rotation = left
             hide_name = True
             size = 60, 20
@@ -2161,7 +2189,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8400, 8480
+            position = 8144, 8584
             hide_name = True
             size = 60, 20
         ]
@@ -2173,7 +2201,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8400, 8440
+            position = 8144, 8544
             hide_name = True
             size = 60, 20
         ]
@@ -2185,7 +2213,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8400, 8520
+            position = 8144, 8624
             hide_name = True
             size = 60, 20
         ]
@@ -2197,7 +2225,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8600, 8440
+            position = 8344, 8544
             hide_name = True
             size = 60, 20
         ]
@@ -2209,7 +2237,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8600, 8480
+            position = 8344, 8584
             hide_name = True
             size = 60, 20
         ]
@@ -2221,7 +2249,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8600, 8520
+            position = 8344, 8624
             hide_name = True
             size = 60, 20
         ]
@@ -2233,7 +2261,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8400, 8792
+            position = 8144, 8776
             hide_name = True
             size = 60, 20
         ]
@@ -2245,7 +2273,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8600, 8792
+            position = 8352, 8776
             hide_name = True
             size = 60, 20
         ]
@@ -2257,7 +2285,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8512
+            position = 8448, 8624
             hide_name = True
             size = 60, 20
         ]
@@ -2269,7 +2297,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8576
+            position = 8448, 8688
             hide_name = True
             size = 60, 20
         ]
@@ -2281,7 +2309,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8448
+            position = 8448, 8560
             hide_name = True
             size = 60, 20
         ]
@@ -2293,7 +2321,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 9056, 8440
+            position = 8792, 8552
             hide_name = True
             size = 60, 20
         ]
@@ -2305,7 +2333,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8856
+            position = 8448, 8984
             hide_name = True
             size = 60, 20
         ]
@@ -2317,7 +2345,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8920
+            position = 8448, 9048
             hide_name = True
             size = 60, 20
         ]
@@ -2329,7 +2357,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8792
+            position = 8448, 8920
             hide_name = True
             size = 60, 20
         ]
@@ -2341,7 +2369,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 9064, 8784
+            position = 8800, 8912
             hide_name = True
             size = 60, 20
         ]
@@ -2353,7 +2381,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8256, 8792
+            position = 8056, 8912
             hide_name = True
             size = 60, 20
         ]
@@ -2365,7 +2393,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8640
+            position = 8448, 8752
             hide_name = True
             size = 60, 20
         ]
@@ -2377,7 +2405,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8712, 8984
+            position = 8448, 9112
             hide_name = True
             size = 60, 20
         ]
@@ -2389,7 +2417,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8256, 8536
+            position = 8056, 8656
             hide_name = True
             size = 60, 20
         ]
@@ -2401,45 +2429,45 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8256, 8656
+            position = 8056, 8776
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto2 {
-            value = "gate_signals"
+            value = "GATE"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 9696, 8816
+            position = 9152, 8960
             hide_name = True
-            size = 68, 20
+            size = 60, 20
         ]
 
         tag From4 {
-            value = "modulating"
+            value = "MOD"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 9184, 8816
+            position = 8888, 8960
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto20 {
-            value = "modulating"
+            value = "MOD"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 9696, 8552
+            position = 8352, 8936
             hide_name = True
-            size = 68, 20
+            size = 60, 20
         ]
 
         tag From23 {
@@ -2449,7 +2477,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9184, 8456
+            position = 8888, 8600
             hide_name = True
             size = 60, 20
         ]
@@ -2461,7 +2489,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9184, 8520
+            position = 8888, 8648
             hide_name = True
             size = 60, 20
         ]
@@ -2473,7 +2501,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8448, 7792
+            position = 8416, 7752
             hide_name = True
             size = 60, 20
         ]
@@ -2485,7 +2513,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8544, 7752
+            position = 8512, 7712
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2499,7 +2527,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8544, 7816
+            position = 8512, 7776
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2513,7 +2541,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8768, 7816
+            position = 8736, 7776
             hide_name = True
             size = 84, 20
         ]
@@ -2525,7 +2553,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8920, 7752
+            position = 8888, 7712
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2539,7 +2567,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8920, 7816
+            position = 8888, 7776
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2553,7 +2581,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8320, 8096
+            position = 8336, 8072
             hide_name = True
             size = 60, 20
         ]
@@ -2565,7 +2593,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8320, 8208
+            position = 8336, 8184
             hide_name = True
             size = 60, 20
         ]
@@ -2577,23 +2605,23 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8256, 8856
+            position = 8056, 8976
             hide_name = True
             size = 60, 20
         ]
 
         tag From1 {
-            value = "gate_signals"
+            value = "GATE"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 8096, 7984
-            rotation = down
+            position = 8208, 7944
+            rotation = right
             hide_name = True
             scale = -1, 1
-            size = 108, 20
+            size = 60, 20
         ]
 
         tag From2 {
@@ -2603,7 +2631,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 8080, 8208
+            position = 8096, 8184
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2617,7 +2645,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 7968, 7984
+            position = 7984, 7944
             rotation = left
             hide_name = True
             size = 60, 20
@@ -2630,7 +2658,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 8256, 8912
+            position = 8056, 9032
             hide_name = True
             size = 60, 20
         ]
@@ -2642,7 +2670,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9184, 8664
+            position = 8888, 8792
             hide_name = True
             size = 60, 20
         ]
@@ -2654,7 +2682,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9248, 8440
+            position = 8888, 8568
             hide_name = True
             size = 60, 20
         ]
@@ -2666,7 +2694,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9312, 8424
+            position = 8888, 8536
             hide_name = True
             size = 60, 20
         ]
@@ -2678,7 +2706,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 9184, 8584
+            position = 8888, 8712
             hide_name = True
             size = 60, 20
         ]
@@ -2690,7 +2718,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 7856, 8152
+            position = 7872, 8128
             hide_name = True
             size = 60, 20
         ]
@@ -2702,7 +2730,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 10032, 8472
+            position = 9248, 8712
             hide_name = True
             size = 60, 20
         ]
@@ -2714,7 +2742,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 10032, 8536
+            position = 9248, 8776
             hide_name = True
             size = 60, 20
         ]
@@ -2726,7 +2754,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 9056, 8648
+            position = 8792, 8760
             hide_name = True
             size = 60, 20
         ]
@@ -2738,7 +2766,7 @@ OUT_ILF_REF = uv_bounded;
             direction = in
         }
         [
-            position = 9056, 8992
+            position = 8792, 9120
             hide_name = True
             size = 60, 20
         ]
@@ -2750,7 +2778,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 10032, 8640
+            position = 9248, 8872
             hide_name = True
             size = 60, 20
         ]
@@ -2762,7 +2790,7 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 10032, 8744
+            position = 9248, 8976
             hide_name = True
             size = 60, 20
         ]
@@ -2774,205 +2802,253 @@ OUT_ILF_REF = uv_bounded;
             direction = out
         }
         [
-            position = 10032, 8688
+            position = 9248, 8920
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From36 {
+            value = "U"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8144, 8936
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto28 {
+            value = "U"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9152, 8680
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From37 {
+            value = "U"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9248, 8592
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From38 {
+            value = "MOD"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9248, 8656
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction29 sp
         [
-            position = 7992, 8472
+            position = 7792, 8592
         ]
 
         junction Junction30 sp
         [
-            position = 7992, 8528
+            position = 7792, 8648
         ]
 
         junction Junction55 sp
         [
-            position = 8184, 7768
+            position = 8152, 7728
         ]
 
         junction Junction56 sp
         [
-            position = 8184, 7784
+            position = 8152, 7744
         ]
 
         junction Junction57 sp
         [
-            position = 8184, 7800
+            position = 8152, 7760
         ]
 
         junction Junction58 sp
         [
-            position = 8184, 7816
+            position = 8152, 7776
         ]
 
         junction Junction59 sp
         [
-            position = 8184, 7792
+            position = 8152, 7752
         ]
 
         junction Junction60 sp
         [
-            position = 8304, 7792
-        ]
-
-        junction Junction74 sp
-        [
-            position = 9640, 8552
+            position = 8272, 7752
         ]
 
         junction Junction75 pe
         [
-            position = 8080, 8248
-        ]
-
-        junction Junction78 sp
-        [
-            position = 9544, 8552
-        ]
-
-        junction Junction79 sp
-        [
-            position = 9008, 8440
-        ]
-
-        junction Junction80 sp
-        [
-            position = 9008, 8784
+            position = 8096, 8224
         ]
 
         comment Comment21 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">METER</p></body></html> ENDCOMMENT 
         [
-            position = 8376, 7912
+            position = 8392, 8288
         ]
 
         comment Comment22 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">LC FILTER</p></body></html> ENDCOMMENT 
         [
-            position = 8520, 7912
+            position = 8536, 8288
         ]
 
         comment Comment23 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">METER</p></body></html> ENDCOMMENT 
         [
-            position = 8704, 7912
+            position = 8728, 8288
         ]
 
         comment Comment24 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">LINE IMPEDANCE</p></body></html> ENDCOMMENT 
         [
-            position = 8872, 7912
+            position = 8896, 8288
         ]
 
         comment Comment25 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">LOAD</p></body></html> ENDCOMMENT 
         [
-            position = 9128, 7912
+            position = 9144, 8288
         ]
 
         comment Comment26 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">INVERTER</p></body></html> ENDCOMMENT 
         [
-            position = 8152, 7912
+            position = 8160, 8288
         ]
 
-        comment Comment27 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">REFERENCES</p></body></html> ENDCOMMENT 
+        comment Comment27 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">VOLTAGE</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">REFERENCES</span></p></body></html> ENDCOMMENT 
         [
-            position = 8024, 8368
+            position = 7800, 8440
         ]
 
-        comment Comment32 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">CLARKE FOR MEASUREMENTS</p></body></html> ENDCOMMENT 
+        comment Comment32 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">CLARKE FOR </span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">MEASUREMENTS</span></p></body></html> ENDCOMMENT 
         [
-            position = 8376, 8368
+            position = 8136, 8440
         ]
 
-        comment Comment33 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">CLARKE FOR REFERENCES</p></body></html> ENDCOMMENT 
+        comment Comment37 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">SCADA</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">INPUTS</span></p></body></html> ENDCOMMENT 
         [
-            position = 8392, 8712
+            position = 7840, 8816
         ]
 
-        comment Comment35 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">INNER LOOP FOR ALPHA AXIS </p></body></html> ENDCOMMENT 
+        comment Comment29 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">HARDWARE PWM</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">EMULATION </span></p></body></html> ENDCOMMENT 
         [
-            position = 8776, 8368
+            position = 8912, 8840
         ]
 
-        comment Comment36 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">INNER LOOP FOR BETA AXIS  </p></body></html> ENDCOMMENT 
+        comment Comment38 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">GEOMETRIC</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">MODULATION </span></p></body></html> ENDCOMMENT 
         [
-            position = 8776, 8712
-        ]
-
-        comment Comment37 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">GENERAL SCADA INPUTS</p></body></html> ENDCOMMENT 
-        [
-            position = 7976, 8728
-        ]
-
-        comment Comment29 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">HARDWARE PWM EMULATION</p></body></html> ENDCOMMENT 
-        [
-            position = 9312, 8712
-        ]
-
-        comment Comment38 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">GEOMETRIC MODULATION</p></body></html> ENDCOMMENT 
-        [
-            position = 9328, 8368
+            position = 8928, 8440
         ]
 
         comment Comment39 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TEST FLAG</p></body></html> ENDCOMMENT 
         [
-            position = 9336, 8064
+            position = 9280, 9024
         ]
 
         comment Comment20 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">AMBIENT TEMPERATURE</p></body></html> ENDCOMMENT 
         [
-            position = 8176, 7680
+            position = 8144, 7640
         ]
 
         comment Comment30 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">HEATSINK THERMAL MODEL</p></body></html> ENDCOMMENT 
         [
-            position = 8536, 7680
+            position = 8504, 7640
         ]
 
         comment Comment31 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">THERMAL MODEL PROBES</p></body></html> ENDCOMMENT 
         [
-            position = 8888, 7680
+            position = 8856, 7640
         ]
 
         comment Comment40 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:6pt;">V0 = [V_{An_0}, V_{Bn_0}, V_{Cn_0}]  </span></p></body></html> ENDCOMMENT 
         [
-            position = 8192, 8496
+            position = 7944, 8712
         ]
 
         comment Comment41 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DC BUS</p></body></html> ENDCOMMENT 
         [
-            position = 7928, 7912
+            position = 7944, 8288
         ]
 
-        comment Comment42 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">INTEREST VARIABLES</p></body></html> ENDCOMMENT 
+        comment Comment42 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">INTEREST</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">VARIABLES</span></p></body></html> ENDCOMMENT 
         [
-            position = 10016, 8360
+            position = 9256, 8440
         ]
 
         comment Comment43 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">VOLTAGE</p></body></html> ENDCOMMENT 
         [
-            position = 10072, 8408
+            position = 9288, 8528
         ]
 
         comment Comment44 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">CURRENT</p></body></html> ENDCOMMENT 
         [
-            position = 10072, 8576
+            position = 9288, 8816
+        ]
+
+        comment Comment45 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">CLARKE FOR </span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">REFERENCES</span></p></body></html> ENDCOMMENT 
+        [
+            position = 8160, 8664
+        ]
+
+        comment Comment46 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">INNER LOOP</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">FOR BETA AXIS</span></p></body></html> ENDCOMMENT 
+        [
+            position = 8544, 8800
+        ]
+
+        comment Comment47 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">INNER LOOP</span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">FOR ALPHA AXIS</span> </p></body></html> ENDCOMMENT 
+        [
+            position = 8528, 8440
+        ]
+
+        comment Comment48 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">INV CLARKE FOR </span></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:16pt; font-weight:696;">CTRL ACTION</span> </p></body></html> ENDCOMMENT 
+        [
+            position = 8136, 8824
+        ]
+
+        comment Comment49 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:24pt; font-weight:696;">POWER SYSTEM</span></p></body></html> ENDCOMMENT 
+        [
+            position = 8432, 7832
+        ]
+
+        comment Comment50 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:24pt; font-weight:696;">THERMAL SYSTEM</span></p></body></html> ENDCOMMENT 
+        [
+            position = 8408, 7560
+        ]
+
+        comment Comment51 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li { white-space: pre-wrap; }</style></head><body style=" font-family:'Arial'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:24pt; font-weight:696;">CONTROL SYSTEM</span> </p></body></html> ENDCOMMENT 
+        [
+            position = 8408, 8352
         ]
 
         connect "Line Impedance.Vc_out" "Grid Load.Vc_in" as Connection82
         [
             hide_name = True
-            breakpoints = 9064, 8248
+            breakpoints = 9080, 8224
         ]
         connect "Grid Load.Va_in" "Line Impedance.Va_out" as Connection83
         [
             hide_name = True
-            breakpoints = 9088, 8056; 9056, 8056
+            breakpoints = 9104, 8032; 9072, 8032
         ]
         connect "Line Impedance.Vb_out" "Grid Load.Vb_in" as Connection84
         [
             hide_name = True
-            breakpoints = 9056, 8152
+            breakpoints = 9072, 8128
         ]
         connect "LC Filter.Vc_in" VSC1-Meter.C- as Connection103
         [
@@ -3006,7 +3082,7 @@ OUT_ILF_REF = uv_bounded;
         connect "Line Impedance.Vc_in" "Core Coupling 3.c_out" as Connection202
         connect "LC Filter.Y-Center" VSC1-FMeter.GND as Connection205
         [
-            breakpoints = 8568, 8296; 8744, 8296
+            breakpoints = 8584, 8272; 8760, 8272
         ]
         connect Goto10 "LC Filter.V_c" as Connection326
         connect Goto9 "LC Filter.I_l1" as Connection327
@@ -3017,7 +3093,7 @@ OUT_ILF_REF = uv_bounded;
         connect 1byVdc2.in1 sine_a.out as Connection243
         connect Junction29 SQRT_2.out as Connection246
         [
-            breakpoints = 7992, 8432
+            breakpoints = 7792, 8552
         ]
         connect 1byVdc2.in Junction29 as Connection247
         connect 1byVdc4.in Junction30 as Connection248
@@ -3026,7 +3102,7 @@ OUT_ILF_REF = uv_bounded;
         connect 1byVdc3.out "Bus Join1.in1" as Connection251
         connect 1byVdc2.out "Bus Join1.in" as Connection253
         [
-            breakpoints = 8096, 8480; 8096, 8520
+            breakpoints = 7896, 8600; 7896, 8640
         ]
         connect From11 MEAS_CLARKE.IN_I0_ABC as Connection336
         connect From9 MEAS_CLARKE.IN_VC_ABC as Connection337
@@ -3047,7 +3123,7 @@ OUT_ILF_REF = uv_bounded;
         connect Goto21 "Bus Join1.out" as Connection7153
         connect 1byVdc4.out "Bus Join1.in2" as Connection7159
         [
-            breakpoints = 8096, 8592; 8096, 8552
+            breakpoints = 7896, 8712; 7896, 8672
         ]
         connect dc_voltage.out Goto22 as Connection7160
         connect Goto2 Modulation.Gate_Signals as Connection24
@@ -3070,7 +3146,7 @@ OUT_ILF_REF = uv_bounded;
         connect Goto3 "Bus Join8.out" as Connection7239
         connect Junction55 "Bus Join5.in" as Connection7259
         [
-            breakpoints = 8184, 7752
+            breakpoints = 8152, 7712
         ]
         connect "Bus Join5.in1" Junction55 as Connection7260
         connect Junction56 Junction55 as Connection7262
@@ -3078,7 +3154,7 @@ OUT_ILF_REF = uv_bounded;
         connect "Bus Join5.in3" Junction57 as Connection7266
         connect "Bus Join5.in5" Junction58 as Connection7267
         [
-            breakpoints = 8184, 7832
+            breakpoints = 8152, 7792
         ]
         connect Junction58 Junction57 as Connection7268
         connect "Bus Join5.in4" Junction58 as Connection7269
@@ -3087,22 +3163,18 @@ OUT_ILF_REF = uv_bounded;
         connect ambient_temperature.out Junction59 as Connection7272
         connect "Bus Join8.in2" Junction60 as Connection7274
         [
-            breakpoints = 8304, 7808
+            breakpoints = 8272, 7768
         ]
         connect Junction60 "Bus Join8.in" as Connection7275
         [
-            breakpoints = 8304, 7776
+            breakpoints = 8272, 7736
         ]
         connect "Bus Join8.in1" Junction60 as Connection7276
         connect "Bus Join5.out" Junction60 as Connection7277
         connect MEAS_CLARKE.OUT_VC_AB0 Goto13 as Connection7367
         [
-            breakpoints = 8552, 8480
+            breakpoints = 8296, 8584
         ]
-        connect Goto20 Junction74 as Connection7373
-        connect Junction74 INV_CLARKE.OUT_V as Connection7374
-        connect modulating.in Junction74 as Connection7375
-        connect From1 "Three Phase NPC Inverter1.s_ctrl" as Connection7396
         connect "DC Bus.DC+" "Three Phase NPC Inverter1.DC+" as Connection7397
         connect "DC Bus.DCn" "Three Phase NPC Inverter1.DCn" as Connection7398
         connect "DC Bus.DC-" Junction75 as Connection7400
@@ -3111,56 +3183,55 @@ OUT_ILF_REF = uv_bounded;
         connect From24 GEO_PWM.IN_ILF as Connection7413
         connect From26 GEO_PWM.IN_KP as Connection7414
         connect "Bus Join3.out" GEO_PWM.IN_M as Connection7416
-        connect "Bus Join3.in2" From23 as Connection7422
-        [
-            breakpoints = 9272, 8456
-        ]
         connect Goto23 Gain1.out as Connection7426
         connect Gain1.in C.out as Connection7427
         connect VSC1-Meter.GND Junction75 as Connection7436
         [
-            breakpoints = 8408, 8296; 8192, 8296; 8080, 8296; 8080, 8296; 8080, 8248
+            breakpoints = 8424, 8272; 8208, 8272; 8096, 8272; 8096, 8272; 8096, 8224
         ]
         connect Goto24 "DC Bus.VDC2" as Connection7449
         connect From29 GEO_PWM.IN_VDC_2 as Connection7450
-        connect INV_CLARKE.IN_V_AB0 Junction78 as Connection7452
-        connect Junction78 GEO_PWM.OUT_V_AB0 as Connection7453
-        connect modulating1.in Junction78 as Connection7454
-        connect INNER_LOOP_ALPHA1.IN_V0 "Bus Selector4.out" as Connection7455
-        connect INNER_LOOP_ALPHA1.IN_ILF "Bus Selector5.out" as Connection7456
-        connect INNER_LOOP_ALPHA1.IN_VC "Bus Selector6.out" as Connection7457
-        connect INNER_LOOP_ALPHA1.IN_KR From20 as Connection7458
-        connect Goto17 Junction79 as Connection7461
-        connect Junction79 INNER_LOOP_ALPHA.OUT_U_ALPHA as Connection7462
-        connect ual.in Junction79 as Connection7463
-        connect INNER_LOOP_ALPHA1.OUT_U_ALPHA Junction80 as Connection7464
-        connect Junction80 Goto18 as Connection7465
-        connect ube.in Junction80 as Connection7466
-        connect From28 "Bus Join3.in" as Connection7467
-        connect From27 "Bus Join3.in1" as Connection7468
-        connect From30 "DC Bus.C" as Connection7469
-        connect From12 REF_CLARKE.IN_V0_ABC as Connection7470
-        [
-            breakpoints = 8440, 8792; 8456, 8792
-        ]
+        connect INNER_LOOP_BETA.IN_V0 "Bus Selector4.out" as Connection7455
+        connect INNER_LOOP_BETA.IN_ILF "Bus Selector5.out" as Connection7456
+        connect INNER_LOOP_BETA.IN_VC "Bus Selector6.out" as Connection7457
+        connect INNER_LOOP_BETA.IN_KR From20 as Connection7458
         connect Goto16 REF_CLARKE.OUT_V0_AB0 as Connection7471
         [
-            breakpoints = 8552, 8792; 8552, 8792
+            breakpoints = 8296, 8776; 8296, 8776
         ]
         connect From31 V0_AB0.in as Connection7472
         connect From32 VC_AB0.in as Connection7473
         connect Goto26 INNER_LOOP_ALPHA.OUT_ILF_REF as Connection7474
-        connect Goto27 INNER_LOOP_ALPHA1.OUT_ILF_REF as Connection7475
+        connect Goto27 INNER_LOOP_BETA.OUT_ILF_REF as Connection7475
         connect From34 ILF_AB0.in as Connection7477
         connect From35 "Bus Join9.in1" as Connection7478
         [
-            breakpoints = 10088, 8688; 10088, 8672
+            breakpoints = 9304, 8920; 9304, 8904
         ]
         connect From33 "Bus Join9.in" as Connection7479
         [
-            breakpoints = 10088, 8640; 10088, 8656
+            breakpoints = 9304, 8872; 9304, 8888
         ]
         connect "Bus Join9.out" ILF0_AB0.in as Connection7480
+        connect From30 "DC Bus.C" as Connection7481
+        connect From12 REF_CLARKE.IN_V0_ABC as Connection7482
+        connect Goto18 INNER_LOOP_BETA.OUT_U_ALPHA as Connection7483
+        [
+            breakpoints = 8744, 8912
+        ]
+        connect Goto17 INNER_LOOP_ALPHA.OUT_U_ALPHA as Connection7484
+        [
+            breakpoints = 8744, 8552
+        ]
+        connect INV_CLARKE.OUT_V Goto20 as Connection7485
+        connect From36 INV_CLARKE.IN_V_AB0 as Connection7486
+        connect From23 "Bus Join3.in2" as Connection7487
+        connect "Bus Join3.in1" From27 as Connection7488
+        connect From28 "Bus Join3.in" as Connection7489
+        connect Goto28 GEO_PWM.OUT_V_AB0 as Connection7490
+        connect From37 U.in as Connection7491
+        connect From38 MOD.in as Connection7492
+        connect From1 "Three Phase NPC Inverter1.s_ctrl" as Connection7493
     }
 
     logically_deleted {
@@ -3172,6 +3243,9 @@ OUT_ILF_REF = uv_bounded;
         "ambient_temperature"
         "Bus Join5"
         "Bus Join8"
+        "DC Bus.VDC_3"
+        "DC Bus.VDC_4"
+        "DC Bus.Connection7522"
         "Goto3"
         "From5"
         "From6"
@@ -3180,6 +3254,7 @@ OUT_ILF_REF = uv_bounded;
         "From8"
         "Goto6"
         "Goto7"
+        "From2"
         "Junction55"
         "Junction56"
         "Junction57"
@@ -3212,7 +3287,6 @@ OUT_ILF_REF = uv_bounded;
         "Connection7275"
         "Connection7276"
         "Connection7277"
-        "From2"
     }
 
     default {
@@ -3676,7 +3750,7 @@ OUT_ILF_REF = uv_bounded;
         # BESS Parameters
         VDC = 1000;
         VDC_2 = 500;
-        VDC_RESISTANCE = 1E-6;
+        VDC_RESISTANCE = 1E-7;
         ONE_BY_VDC = 1/VDC;
         MAX_VRMS = VDC/np.sqrt(2);
         

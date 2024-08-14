@@ -32,16 +32,16 @@ extern "C" {
 #endif
 
 
-        #include "park_clarke.h"
 
         #include "park_clarke.h"
 
+
+        #include "park_clarke.h"
 
         #include "geometric_modulation.h"
 
-
-
         #include "park_clarke.h"
+
 
 // ----------------------------------------------------------------------------------------                // generated using template:generic_macros.template-----------------------------------------
 /*********************** Macros (Inline Functions) Definitions ***************************/
@@ -860,22 +860,22 @@ typedef double real;
  float  _inner_loop_alpha__ui = 0;
  float  _inner_loop_alpha__ui_bounded = 0;
 
-        float  _inner_loop_alpha1__SS_V_GAINS [ ] = {  0 ,  0 ,  0 ,  0 ,  0 };
- float  _inner_loop_alpha1__SS_I_GAINS [ ] = {  0 ,  0 ,  0 };
- float  _inner_loop_alpha1__UV_BOUNDARY = 0;
- float  _inner_loop_alpha1__UI_BOUNDARY = 0;
- float  _inner_loop_alpha1__A = 0;
- float  _inner_loop_alpha1__OMEGA0 = 0;
- float  _inner_loop_alpha1__TS_20KHZ = 0;
- float  _inner_loop_alpha1__uv = 0;
- float  _inner_loop_alpha1__uv_bounded = 0;
- float  _inner_loop_alpha1__xc_1_kminus1 = 0;
- float  _inner_loop_alpha1__xc_2_kminus1 = 0;
- float  _inner_loop_alpha1__xc_1 = 0;
- float  _inner_loop_alpha1__xc_2 = 0;
- float  _inner_loop_alpha1__err = 0;
- float  _inner_loop_alpha1__ui = 0;
- float  _inner_loop_alpha1__ui_bounded = 0;
+        float  _inner_loop_beta__SS_V_GAINS [ ] = {  0 ,  0 ,  0 ,  0 ,  0 };
+ float  _inner_loop_beta__SS_I_GAINS [ ] = {  0 ,  0 ,  0 };
+ float  _inner_loop_beta__UV_BOUNDARY = 0;
+ float  _inner_loop_beta__UI_BOUNDARY = 0;
+ float  _inner_loop_beta__A = 0;
+ float  _inner_loop_beta__OMEGA0 = 0;
+ float  _inner_loop_beta__TS_20KHZ = 0;
+ float  _inner_loop_beta__uv = 0;
+ float  _inner_loop_beta__uv_bounded = 0;
+ float  _inner_loop_beta__xc_1_kminus1 = 0;
+ float  _inner_loop_beta__xc_2_kminus1 = 0;
+ float  _inner_loop_beta__xc_1 = 0;
+ float  _inner_loop_beta__xc_2 = 0;
+ float  _inner_loop_beta__err = 0;
+ float  _inner_loop_beta__ui = 0;
+ float  _inner_loop_beta__ui_bounded = 0;
 
 
 
@@ -914,8 +914,6 @@ typedef double real;
 
 
     
-
-
 
 
 
@@ -1882,13 +1880,13 @@ double _grid_load_load_phase_c_gain1__out;double _grid_load_load_phase_c_f_to_w5
 
                 double _inner_loop_alpha__OUT_ILF_REF;
                 double _inner_loop_alpha__OUT_U_ALPHA;
-                double _inner_loop_alpha1__IN_ILF;
-                double _inner_loop_alpha1__IN_KR;
-                double _inner_loop_alpha1__IN_V0;
-                double _inner_loop_alpha1__IN_VC;
+                double _inner_loop_beta__IN_ILF;
+                double _inner_loop_beta__IN_KR;
+                double _inner_loop_beta__IN_V0;
+                double _inner_loop_beta__IN_VC;
 
-                double _inner_loop_alpha1__OUT_ILF_REF;
-                double _inner_loop_alpha1__OUT_U_ALPHA;
+                double _inner_loop_beta__OUT_ILF_REF;
+                double _inner_loop_beta__OUT_U_ALPHA;
     double _grid_load_load_phase_a_grid_synchronization_abs1__out;
     double _grid_load_load_phase_a_single_phase_pll1_abs1__out;
     double _grid_load_load_phase_a_limit9__out;
@@ -3266,15 +3264,15 @@ double _grid_load_load_phase_c_single_phase_pll1_gain6__out;    double _grid_loa
 //
 static struct Tunable_params {
             double _modulation_lower_carrier__frequency;
+            double _modulation_lower_carrier__phase;
             double _modulation_lower_carrier__duty_cycle;
             double _modulation_lower_carrier__max_val;
             double _modulation_lower_carrier__min_val;
-            double _modulation_lower_carrier__phase;
-            double _modulation_upper_carrier__min_val;
+            double _modulation_upper_carrier__duty_cycle;
             double _modulation_upper_carrier__frequency;
             double _modulation_upper_carrier__phase;
+            double _modulation_upper_carrier__min_val;
             double _modulation_upper_carrier__max_val;
-            double _modulation_upper_carrier__duty_cycle;
 } __attribute__((__packed__)) tunable_params;
 
 void *tunable_params_dev0_cpu0_ptr = &tunable_params;
@@ -4003,9 +4001,9 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
     
-          HIL_OutAO(0x4017, 0.0f);
+          HIL_OutAO(0x401a, 0.0f);
 
-          HIL_OutAO(0x4018, 0.0f);
+          HIL_OutAO(0x401b, 0.0f);
 
     
     
@@ -4199,15 +4197,15 @@ void ReInit_user_sp_cpu0_dev0(){
     _meas_clarke__ilf_al = 0 ; _meas_clarke__ilf_be = 0 ; _meas_clarke__ilf_0 = 0 ; _meas_clarke__vc_al = 0 ; _meas_clarke__vc_be = 0 ; _meas_clarke__vc_0 = 0 ; _meas_clarke__i0_al = 0 ; _meas_clarke__i0_be = 0 ; _meas_clarke__i0_0 = 0 ;
 }
 
-          HIL_OutAO(0x4015, 0.0f);
+          HIL_OutAO(0x4018, 0.0f);
 
         {
     _modulation_comparator__va = 0 ; _modulation_comparator__vb = 0 ; _modulation_comparator__vc = 0 ;
 }
 
-          HIL_OutAO(0x4016, 0.0f);
+          HIL_OutAO(0x4019, 0.0f);
 
-          HIL_OutAO(0x401f, 0.0f);
+          HIL_OutAO(0x4025, 0.0f);
 
         {
     _vsc1_fmeter_meassm_mode_and_dfract__fMax = 1.0 / 1e-06 ; _vsc1_fmeter_meassm_mode_and_dfract__cycle_counter = 0 ; _vsc1_fmeter_meassm_mode_and_dfract__reset = 1 ; _vsc1_fmeter_meassm_mode_and_dfract__dFract_state = 0 ; _vsc1_fmeter_meassm_mode_and_dfract__submode_state = 0 ;
@@ -4220,13 +4218,13 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
     
-          HIL_OutAO(0x4023, 0.0f);
+          HIL_OutAO(0x4029, 0.0f);
 
-          HIL_OutAO(0x4024, 0.0f);
+          HIL_OutAO(0x402a, 0.0f);
 
-          HIL_OutAO(0x4025, 0.0f);
+          HIL_OutAO(0x402b, 0.0f);
 
-          HIL_OutAO(0x4026, 0.0f);
+          HIL_OutAO(0x402c, 0.0f);
 
     
     
@@ -4294,7 +4292,7 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
     HIL_OutAO(0x4012, 0.0f);HIL_OutAO(0x4013, 0.0f);HIL_OutAO(0x4014, 0.0f);
-    HIL_OutAO(0x401c, 0.0f);HIL_OutAO(0x401d, 0.0f);HIL_OutAO(0x401e, 0.0f);
+    HIL_OutAO(0x4022, 0.0f);HIL_OutAO(0x4023, 0.0f);HIL_OutAO(0x4024, 0.0f);
     
         {
     _vsc1_fmeter_i_rms_calc_rms__RMS1_state = 0 ; _vsc1_fmeter_i_rms_calc_rms__RMS2_state = 0 ; _vsc1_fmeter_i_rms_calc_rms__RMS3_state = 0 ;
@@ -4369,23 +4367,23 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
     
-          HIL_OutAO(0x4020, 0.0f);
-
-          HIL_OutAO(0x4021, 0.0f);
-
-          HIL_OutAO(0x4022, 0.0f);
+          HIL_OutAO(0x4026, 0.0f);
 
           HIL_OutAO(0x4027, 0.0f);
 
-          HIL_OutAO(0x4029, 0.0f);
-
-          HIL_OutAO(0x402b, 0.0f);
-
           HIL_OutAO(0x4028, 0.0f);
 
-          HIL_OutAO(0x402a, 0.0f);
+          HIL_OutAO(0x402d, 0.0f);
 
-          HIL_OutAO(0x402c, 0.0f);
+          HIL_OutAO(0x402f, 0.0f);
+
+          HIL_OutAO(0x4031, 0.0f);
+
+          HIL_OutAO(0x402e, 0.0f);
+
+          HIL_OutAO(0x4030, 0.0f);
+
+          HIL_OutAO(0x4032, 0.0f);
 
     
     
@@ -4430,7 +4428,7 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
     
-    HIL_OutAO(0x4019, 0.0f);HIL_OutAO(0x401a, 0.0f);HIL_OutAO(0x401b, 0.0f);
+    HIL_OutAO(0x401f, 0.0f);HIL_OutAO(0x4020, 0.0f);HIL_OutAO(0x4021, 0.0f);
     
     
     
@@ -4460,11 +4458,11 @@ void ReInit_user_sp_cpu0_dev0(){
     
     
         {
-    _inner_loop_alpha__SS_V_GAINS [ 0 ] = + 3.005202175747935e-02 ; _inner_loop_alpha__SS_V_GAINS [ 1 ] = + 2.978384429593665e-01 ; _inner_loop_alpha__SS_V_GAINS [ 2 ] = + 0 ; _inner_loop_alpha__SS_V_GAINS [ 3 ] = + 4.332144964769132e-02 ; _inner_loop_alpha__SS_V_GAINS [ 4 ] = - 4.386152786476110e-02 ; _inner_loop_alpha__SS_I_GAINS [ 0 ] = + 1.072411193858177e+01 ; _inner_loop_alpha__SS_I_GAINS [ 1 ] = - 2.938904663320472e-01 ; _inner_loop_alpha__SS_I_GAINS [ 2 ] = 0 ; _inner_loop_alpha__UV_BOUNDARY = 520 ; _inner_loop_alpha__UI_BOUNDARY = 1000 ; _inner_loop_alpha__A = 0.1 ; _inner_loop_alpha__OMEGA0 = 376.991118431 ; _inner_loop_alpha__TS_20KHZ = 0.00005 ; _inner_loop_alpha__uv = 0 ; _inner_loop_alpha__uv_bounded = 0 ; _inner_loop_alpha__xc_1_kminus1 = 0 ; _inner_loop_alpha__xc_2_kminus1 = 0 ; _inner_loop_alpha__xc_1 = 0 ; _inner_loop_alpha__xc_2 = 0 ; _inner_loop_alpha__err = 0 ; _inner_loop_alpha__ui = 0 ; _inner_loop_alpha__ui_bounded = 0 ;
+    _inner_loop_alpha__SS_V_GAINS [ 0 ] = + 3.005202175747935e-02 ; _inner_loop_alpha__SS_V_GAINS [ 1 ] = + 2.978384429593665e-01 ; _inner_loop_alpha__SS_V_GAINS [ 2 ] = + 0 ; _inner_loop_alpha__SS_V_GAINS [ 3 ] = + 4.332144964769132e-02 ; _inner_loop_alpha__SS_V_GAINS [ 4 ] = - 4.386152786476110e-02 ; _inner_loop_alpha__SS_I_GAINS [ 0 ] = + 1.072411193858177e+01 ; _inner_loop_alpha__SS_I_GAINS [ 1 ] = - 2.938904663320472e-01 ; _inner_loop_alpha__SS_I_GAINS [ 2 ] = 0 ; _inner_loop_alpha__UV_BOUNDARY = 700 ; _inner_loop_alpha__UI_BOUNDARY = 1000 ; _inner_loop_alpha__A = 0.1 ; _inner_loop_alpha__OMEGA0 = 376.991118431 ; _inner_loop_alpha__TS_20KHZ = 0.00005 ; _inner_loop_alpha__uv = 0 ; _inner_loop_alpha__uv_bounded = 0 ; _inner_loop_alpha__xc_1_kminus1 = 0 ; _inner_loop_alpha__xc_2_kminus1 = 0 ; _inner_loop_alpha__xc_1 = 0 ; _inner_loop_alpha__xc_2 = 0 ; _inner_loop_alpha__err = 0 ; _inner_loop_alpha__ui = 0 ; _inner_loop_alpha__ui_bounded = 0 ;
 }
 
         {
-    _inner_loop_alpha1__SS_V_GAINS [ 0 ] = + 3.005202175747935e-02 ; _inner_loop_alpha1__SS_V_GAINS [ 1 ] = + 2.978384429593665e-01 ; _inner_loop_alpha1__SS_V_GAINS [ 2 ] = + 0 ; _inner_loop_alpha1__SS_V_GAINS [ 3 ] = + 4.332144964769132e-02 ; _inner_loop_alpha1__SS_V_GAINS [ 4 ] = - 4.386152786476110e-02 ; _inner_loop_alpha1__SS_I_GAINS [ 0 ] = + 1.072411193858177e+01 ; _inner_loop_alpha1__SS_I_GAINS [ 1 ] = - 2.938904663320472e-01 ; _inner_loop_alpha1__SS_I_GAINS [ 2 ] = 0 ; _inner_loop_alpha1__UV_BOUNDARY = 520 ; _inner_loop_alpha1__UI_BOUNDARY = 1000 ; _inner_loop_alpha1__A = 0.1 ; _inner_loop_alpha1__OMEGA0 = 376.991118431 ; _inner_loop_alpha1__TS_20KHZ = 0.00005 ; _inner_loop_alpha1__uv = 0 ; _inner_loop_alpha1__uv_bounded = 0 ; _inner_loop_alpha1__xc_1_kminus1 = 0 ; _inner_loop_alpha1__xc_2_kminus1 = 0 ; _inner_loop_alpha1__xc_1 = 0 ; _inner_loop_alpha1__xc_2 = 0 ; _inner_loop_alpha1__err = 0 ; _inner_loop_alpha1__ui = 0 ; _inner_loop_alpha1__ui_bounded = 0 ;
+    _inner_loop_beta__SS_V_GAINS [ 0 ] = + 3.005202175747935e-02 ; _inner_loop_beta__SS_V_GAINS [ 1 ] = + 2.978384429593665e-01 ; _inner_loop_beta__SS_V_GAINS [ 2 ] = + 0 ; _inner_loop_beta__SS_V_GAINS [ 3 ] = + 4.332144964769132e-02 ; _inner_loop_beta__SS_V_GAINS [ 4 ] = - 4.386152786476110e-02 ; _inner_loop_beta__SS_I_GAINS [ 0 ] = + 1.072411193858177e+01 ; _inner_loop_beta__SS_I_GAINS [ 1 ] = - 2.938904663320472e-01 ; _inner_loop_beta__SS_I_GAINS [ 2 ] = 0 ; _inner_loop_beta__UV_BOUNDARY = 700 ; _inner_loop_beta__UI_BOUNDARY = 1000 ; _inner_loop_beta__A = 0.1 ; _inner_loop_beta__OMEGA0 = 376.991118431 ; _inner_loop_beta__TS_20KHZ = 0.00005 ; _inner_loop_beta__uv = 0 ; _inner_loop_beta__uv_bounded = 0 ; _inner_loop_beta__xc_1_kminus1 = 0 ; _inner_loop_beta__xc_2_kminus1 = 0 ; _inner_loop_beta__xc_1 = 0 ; _inner_loop_beta__xc_2 = 0 ; _inner_loop_beta__err = 0 ; _inner_loop_beta__ui = 0 ; _inner_loop_beta__ui_bounded = 0 ;
 }
 
     
@@ -4524,12 +4522,8 @@ void ReInit_user_sp_cpu0_dev0(){
     _vsc1_fmeter_pll_integrator__state = 0 ;
 }
 
-          HIL_OutAO(0x4033, 0.0f);
-
     
     
-          HIL_OutAO(0x4034, 0.0f);
-
           
             _grid_load_load_phase_a_grid_synchronization_comparator1__state = 0.0f;
     
@@ -4603,7 +4597,7 @@ void ReInit_user_sp_cpu0_dev0(){
     _inv_clarke__van = 0 ; _inv_clarke__vbn = 0 ; _inv_clarke__vcn = 0 ;
 }
 
-    HIL_OutAO(0x4030, 0.0f);HIL_OutAO(0x4031, 0.0f);HIL_OutAO(0x4032, 0.0f);
+    HIL_OutAO(0x401c, 0.0f);HIL_OutAO(0x401d, 0.0f);HIL_OutAO(0x401e, 0.0f);
         {
     _grid_load_load_phase_a_counter__cnt = 0 ; _grid_load_load_phase_a_counter__out_state = 0 ;
 }
@@ -4637,8 +4631,8 @@ void ReInit_user_sp_cpu0_dev0(){
                 _grid_load_load_phase_c_single_phase_pll1_discrete_transfer_function1__states[_grid_load_load_phase_c_single_phase_pll1_discrete_transfer_function1__i] = 0;
             }
 
+    HIL_OutAO(0x4015, 0.0f);HIL_OutAO(0x4016, 0.0f);HIL_OutAO(0x4017, 0.0f);
     
-    HIL_OutAO(0x402d, 0.0f);HIL_OutAO(0x402e, 0.0f);HIL_OutAO(0x402f, 0.0f);
     
     
     
@@ -5272,7 +5266,7 @@ void TimerCounterHandler_0_user_sp_cpu0_dev0() {
  	        	_vsc1_meter_output_bus__out[29] = _vsc1_meter_zero__out;
  
          // Generated from the component: Modulation.LC
-            HIL_OutAO(0x4015, (float)_modulation_gain2__out);
+            HIL_OutAO(0x4018, (float)_modulation_gain2__out);
 
          // Generated from the component: Modulation.Comparator
                     _modulation_comparator__IN_LOWER_CARRIER = _modulation_gain2__out;
@@ -5322,10 +5316,10 @@ void TimerCounterHandler_0_user_sp_cpu0_dev0() {
 }
 
          // Generated from the component: Modulation.UC
-            HIL_OutAO(0x4016, (float)_modulation_gain1__out);
+            HIL_OutAO(0x4019, (float)_modulation_gain1__out);
 
          // Generated from the component: VSC1-FMeter.Freq
-            HIL_OutAO(0x401f, (float)_vsc1_fmeter_pll_to_hz__out);
+            HIL_OutAO(0x4025, (float)_vsc1_fmeter_pll_to_hz__out);
 
          // Generated from the component: VSC1-FMeter.measSM.mode_and_dFract
                     _vsc1_fmeter_meassm_mode_and_dfract__Freq = _vsc1_fmeter_pll_to_hz__out;
@@ -5399,16 +5393,16 @@ void TimerCounterHandler_0_user_sp_cpu0_dev0() {
         
 
          // Generated from the component: VSC1-FMeter.POWER_P
-            HIL_OutAO(0x4023, (float)_vsc1_fmeter_power_meter__Pdc);
+            HIL_OutAO(0x4029, (float)_vsc1_fmeter_power_meter__Pdc);
 
          // Generated from the component: VSC1-FMeter.POWER_PF
-            HIL_OutAO(0x4024, (float)_vsc1_fmeter_power_meter__k_factor);
+            HIL_OutAO(0x402a, (float)_vsc1_fmeter_power_meter__k_factor);
 
          // Generated from the component: VSC1-FMeter.POWER_Q
-            HIL_OutAO(0x4025, (float)_vsc1_fmeter_power_meter__Qdc);
+            HIL_OutAO(0x402b, (float)_vsc1_fmeter_power_meter__Qdc);
 
          // Generated from the component: VSC1-FMeter.POWER_S
-            HIL_OutAO(0x4026, (float)_vsc1_fmeter_power_meter__apparent);
+            HIL_OutAO(0x402c, (float)_vsc1_fmeter_power_meter__apparent);
 
          // Generated from the component: VSC1-FMeter.extra_out
         
@@ -5500,31 +5494,31 @@ void TimerCounterHandler_0_user_sp_cpu0_dev0() {
  
 
          // Generated from the component: VSC1-FMeter.IA_RMS
-            HIL_OutAO(0x4020, (float)_vsc1_fmeter_i_rms_calc_rms__RMS1);
+            HIL_OutAO(0x4026, (float)_vsc1_fmeter_i_rms_calc_rms__RMS1);
 
          // Generated from the component: VSC1-FMeter.IB_RMS
-            HIL_OutAO(0x4021, (float)_vsc1_fmeter_i_rms_calc_rms__RMS2);
+            HIL_OutAO(0x4027, (float)_vsc1_fmeter_i_rms_calc_rms__RMS2);
 
          // Generated from the component: VSC1-FMeter.IC_RMS
-            HIL_OutAO(0x4022, (float)_vsc1_fmeter_i_rms_calc_rms__RMS3);
+            HIL_OutAO(0x4028, (float)_vsc1_fmeter_i_rms_calc_rms__RMS3);
 
          // Generated from the component: VSC1-FMeter.VAB_RMS
-            HIL_OutAO(0x4027, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS1);
+            HIL_OutAO(0x402d, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS1);
 
          // Generated from the component: VSC1-FMeter.VBC_RMS
-            HIL_OutAO(0x4029, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS2);
+            HIL_OutAO(0x402f, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS2);
 
          // Generated from the component: VSC1-FMeter.VCA_RMS
-            HIL_OutAO(0x402b, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS3);
+            HIL_OutAO(0x4031, (float)_vsc1_fmeter_vll_rms_calc_rms__RMS3);
 
          // Generated from the component: VSC1-FMeter.VAn_RMS
-            HIL_OutAO(0x4028, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS1);
+            HIL_OutAO(0x402e, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS1);
 
          // Generated from the component: VSC1-FMeter.VBn_RMS
-            HIL_OutAO(0x402a, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS2);
+            HIL_OutAO(0x4030, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS2);
 
          // Generated from the component: VSC1-FMeter.VCn_RMS
-            HIL_OutAO(0x402c, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS3);
+            HIL_OutAO(0x4032, (float)_vsc1_fmeter_vln_rms_calc_rms__RMS3);
 
          // Generated from the component: VSC1-FMeter.output_bus
         
@@ -7386,10 +7380,10 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
  	        	_line_impedance_bus_join__out[2] = _line_impedance_ilcg_ia1__out;
  
          // Generated from the component: STEADY_STATE_FB
-            HIL_OutAO(0x4017, (float)_steady_state__out);
+            HIL_OutAO(0x401a, (float)_steady_state__out);
 
          // Generated from the component: TEST_FLAG_FB
-            HIL_OutAO(0x4018, (float)_test_flag__out);
+            HIL_OutAO(0x401b, (float)_test_flag__out);
 
          // Generated from the component: SQRT_2
                     _sqrt_2__out = 0.8164965809277261 * _v_line_rms__out;
@@ -8060,9 +8054,9 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
 
 
          // Generated from the component: VC_AB0
-                HIL_OutAO(0x401c, (float)_meas_clarke__OUT_VC_AB0[0]);
-        HIL_OutAO(0x401d, (float)_meas_clarke__OUT_VC_AB0[1]);
-        HIL_OutAO(0x401e, (float)_meas_clarke__OUT_VC_AB0[2]);
+                HIL_OutAO(0x4022, (float)_meas_clarke__OUT_VC_AB0[0]);
+        HIL_OutAO(0x4023, (float)_meas_clarke__OUT_VC_AB0[1]);
+        HIL_OutAO(0x4024, (float)_meas_clarke__OUT_VC_AB0[2]);
 
 
          // Generated from the component: Bus Join1
@@ -8497,9 +8491,9 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
 
 
          // Generated from the component: V0_AB0
-                HIL_OutAO(0x4019, (float)_ref_clarke__OUT_V0_AB0[0]);
-        HIL_OutAO(0x401a, (float)_ref_clarke__OUT_V0_AB0[1]);
-        HIL_OutAO(0x401b, (float)_ref_clarke__OUT_V0_AB0[2]);
+                HIL_OutAO(0x401f, (float)_ref_clarke__OUT_V0_AB0[0]);
+        HIL_OutAO(0x4020, (float)_ref_clarke__OUT_V0_AB0[1]);
+        HIL_OutAO(0x4021, (float)_ref_clarke__OUT_V0_AB0[2]);
 
 
          // Generated from the component: Grid Load.Load.Phase A.Grid synchronization.Product4
@@ -8611,17 +8605,17 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
             _inner_loop_alpha__IN_VC = _bus_selector3__out;
 
     {
-    _inner_loop_alpha__uv = - ( _inner_loop_alpha__SS_V_GAINS [ 0 ] * _inner_loop_alpha__IN_ILF ) - ( _inner_loop_alpha__SS_V_GAINS [ 1 ] * _inner_loop_alpha__IN_VC ) - ( _inner_loop_alpha__SS_V_GAINS [ 2 ] * _inner_loop_alpha__ui ) - ( _inner_loop_alpha__SS_V_GAINS [ 3 ] * _inner_loop_alpha__xc_1 ) - ( _inner_loop_alpha__SS_V_GAINS [ 4 ] * _inner_loop_alpha__xc_2 ) ; _inner_loop_alpha__uv_bounded = _inner_loop_alpha__uv ; if ( ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) / sqrt ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) >= _inner_loop_alpha__UV_BOUNDARY ) _inner_loop_alpha__uv_bounded = _inner_loop_alpha__UV_BOUNDARY * _inner_loop_alpha__uv / sqrt ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) ; _inner_loop_alpha__err = _inner_loop_alpha__IN_V0 - _inner_loop_alpha__IN_VC ; _inner_loop_alpha__ui = ( _inner_loop_alpha__IN_KR * _inner_loop_alpha__uv_bounded ) - ( _inner_loop_alpha__SS_I_GAINS [ 0 ] * _inner_loop_alpha__IN_ILF ) - ( _inner_loop_alpha__SS_I_GAINS [ 1 ] * _inner_loop_alpha__IN_VC ) - ( _inner_loop_alpha__SS_I_GAINS [ 2 ] * _inner_loop_alpha__ui ) ; _inner_loop_alpha__ui_bounded = _inner_loop_alpha__ui ; if ( ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) / sqrt ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) >= _inner_loop_alpha__UI_BOUNDARY ) _inner_loop_alpha__ui_bounded = _inner_loop_alpha__UI_BOUNDARY * _inner_loop_alpha__ui / sqrt ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) ; _inner_loop_alpha__xc_1_kminus1 = _inner_loop_alpha__xc_1 ; _inner_loop_alpha__xc_2_kminus1 = _inner_loop_alpha__xc_2 ; _inner_loop_alpha__xc_1 = 0.0 * _inner_loop_alpha__xc_1 + 1 * _inner_loop_alpha__xc_2_kminus1 ; _inner_loop_alpha__xc_2 = - exp ( - _inner_loop_alpha__A * _inner_loop_alpha__TS_20KHZ ) * _inner_loop_alpha__xc_1_kminus1 + 2 * exp ( - 2 * _inner_loop_alpha__A * _inner_loop_alpha__TS_20KHZ ) * cos ( _inner_loop_alpha__OMEGA0 * _inner_loop_alpha__TS_20KHZ ) * _inner_loop_alpha__xc_2_kminus1 + _inner_loop_alpha__err ; _inner_loop_alpha__OUT_U_ALPHA = + _inner_loop_alpha__ui_bounded ; _inner_loop_alpha__OUT_ILF_REF = _inner_loop_alpha__uv_bounded ;
+    _inner_loop_alpha__uv = - ( _inner_loop_alpha__SS_V_GAINS [ 0 ] * _inner_loop_alpha__IN_ILF ) - ( _inner_loop_alpha__SS_V_GAINS [ 1 ] * _inner_loop_alpha__IN_VC ) - ( _inner_loop_alpha__SS_V_GAINS [ 2 ] * _inner_loop_alpha__ui_bounded ) - ( _inner_loop_alpha__SS_V_GAINS [ 3 ] * _inner_loop_alpha__xc_1 ) - ( _inner_loop_alpha__SS_V_GAINS [ 4 ] * _inner_loop_alpha__xc_2 ) ; _inner_loop_alpha__uv_bounded = _inner_loop_alpha__uv ; if ( ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) / sqrt ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) >= _inner_loop_alpha__UV_BOUNDARY ) _inner_loop_alpha__uv_bounded = _inner_loop_alpha__UV_BOUNDARY * _inner_loop_alpha__uv / sqrt ( _inner_loop_alpha__uv * _inner_loop_alpha__uv ) ; _inner_loop_alpha__err = _inner_loop_alpha__IN_V0 - _inner_loop_alpha__IN_VC ; _inner_loop_alpha__ui = ( _inner_loop_alpha__IN_KR * _inner_loop_alpha__uv_bounded ) - ( _inner_loop_alpha__SS_I_GAINS [ 0 ] * _inner_loop_alpha__IN_ILF ) - ( _inner_loop_alpha__SS_I_GAINS [ 1 ] * _inner_loop_alpha__IN_VC ) - ( _inner_loop_alpha__SS_I_GAINS [ 2 ] * _inner_loop_alpha__ui ) ; _inner_loop_alpha__ui_bounded = _inner_loop_alpha__ui ; if ( ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) / sqrt ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) >= _inner_loop_alpha__UI_BOUNDARY ) _inner_loop_alpha__ui_bounded = _inner_loop_alpha__UI_BOUNDARY * _inner_loop_alpha__ui / sqrt ( _inner_loop_alpha__ui * _inner_loop_alpha__ui ) ; _inner_loop_alpha__xc_1_kminus1 = _inner_loop_alpha__xc_1 ; _inner_loop_alpha__xc_2_kminus1 = _inner_loop_alpha__xc_2 ; _inner_loop_alpha__xc_1 = 0.0 * _inner_loop_alpha__xc_1 + 1 * _inner_loop_alpha__xc_2_kminus1 ; _inner_loop_alpha__xc_2 = - exp ( - _inner_loop_alpha__A * _inner_loop_alpha__TS_20KHZ ) * _inner_loop_alpha__xc_1_kminus1 + 2 * exp ( - 2 * _inner_loop_alpha__A * _inner_loop_alpha__TS_20KHZ ) * cos ( _inner_loop_alpha__OMEGA0 * _inner_loop_alpha__TS_20KHZ ) * _inner_loop_alpha__xc_2_kminus1 + _inner_loop_alpha__err ; _inner_loop_alpha__OUT_U_ALPHA = + _inner_loop_alpha__ui_bounded ; _inner_loop_alpha__OUT_ILF_REF = _inner_loop_alpha__uv_bounded ;
 }
 
-         // Generated from the component: INNER_LOOP_ALPHA1
-                    _inner_loop_alpha1__IN_ILF = _bus_selector5__out;
-            _inner_loop_alpha1__IN_KR = _kr__out;
-            _inner_loop_alpha1__IN_V0 = _bus_selector4__out;
-            _inner_loop_alpha1__IN_VC = _bus_selector6__out;
+         // Generated from the component: INNER_LOOP_BETA
+                    _inner_loop_beta__IN_ILF = _bus_selector5__out;
+            _inner_loop_beta__IN_KR = _kr__out;
+            _inner_loop_beta__IN_V0 = _bus_selector4__out;
+            _inner_loop_beta__IN_VC = _bus_selector6__out;
 
     {
-    _inner_loop_alpha1__uv = - ( _inner_loop_alpha1__SS_V_GAINS [ 0 ] * _inner_loop_alpha1__IN_ILF ) - ( _inner_loop_alpha1__SS_V_GAINS [ 1 ] * _inner_loop_alpha1__IN_VC ) - ( _inner_loop_alpha1__SS_V_GAINS [ 2 ] * _inner_loop_alpha1__ui ) - ( _inner_loop_alpha1__SS_V_GAINS [ 3 ] * _inner_loop_alpha1__xc_1 ) - ( _inner_loop_alpha1__SS_V_GAINS [ 4 ] * _inner_loop_alpha1__xc_2 ) ; _inner_loop_alpha1__uv_bounded = _inner_loop_alpha1__uv ; if ( ( _inner_loop_alpha1__uv * _inner_loop_alpha1__uv ) / sqrt ( _inner_loop_alpha1__uv * _inner_loop_alpha1__uv ) >= _inner_loop_alpha1__UV_BOUNDARY ) _inner_loop_alpha1__uv_bounded = _inner_loop_alpha1__UV_BOUNDARY * _inner_loop_alpha1__uv / sqrt ( _inner_loop_alpha1__uv * _inner_loop_alpha1__uv ) ; _inner_loop_alpha1__err = _inner_loop_alpha1__IN_V0 - _inner_loop_alpha1__IN_VC ; _inner_loop_alpha1__ui = ( _inner_loop_alpha1__IN_KR * _inner_loop_alpha1__uv_bounded ) - ( _inner_loop_alpha1__SS_I_GAINS [ 0 ] * _inner_loop_alpha1__IN_ILF ) - ( _inner_loop_alpha1__SS_I_GAINS [ 1 ] * _inner_loop_alpha1__IN_VC ) - ( _inner_loop_alpha1__SS_I_GAINS [ 2 ] * _inner_loop_alpha1__ui ) ; _inner_loop_alpha1__ui_bounded = _inner_loop_alpha1__ui ; if ( ( _inner_loop_alpha1__ui * _inner_loop_alpha1__ui ) / sqrt ( _inner_loop_alpha1__ui * _inner_loop_alpha1__ui ) >= _inner_loop_alpha1__UI_BOUNDARY ) _inner_loop_alpha1__ui_bounded = _inner_loop_alpha1__UI_BOUNDARY * _inner_loop_alpha1__ui / sqrt ( _inner_loop_alpha1__ui * _inner_loop_alpha1__ui ) ; _inner_loop_alpha1__xc_1_kminus1 = _inner_loop_alpha1__xc_1 ; _inner_loop_alpha1__xc_2_kminus1 = _inner_loop_alpha1__xc_2 ; _inner_loop_alpha1__xc_1 = 0.0 * _inner_loop_alpha1__xc_1 + 1 * _inner_loop_alpha1__xc_2_kminus1 ; _inner_loop_alpha1__xc_2 = - exp ( - _inner_loop_alpha1__A * _inner_loop_alpha1__TS_20KHZ ) * _inner_loop_alpha1__xc_1_kminus1 + 2 * exp ( - 2 * _inner_loop_alpha1__A * _inner_loop_alpha1__TS_20KHZ ) * cos ( _inner_loop_alpha1__OMEGA0 * _inner_loop_alpha1__TS_20KHZ ) * _inner_loop_alpha1__xc_2_kminus1 + _inner_loop_alpha1__err ; _inner_loop_alpha1__OUT_U_ALPHA = + _inner_loop_alpha1__ui_bounded ; _inner_loop_alpha1__OUT_ILF_REF = _inner_loop_alpha1__uv_bounded ;
+    _inner_loop_beta__uv = - ( _inner_loop_beta__SS_V_GAINS [ 0 ] * _inner_loop_beta__IN_ILF ) - ( _inner_loop_beta__SS_V_GAINS [ 1 ] * _inner_loop_beta__IN_VC ) - ( _inner_loop_beta__SS_V_GAINS [ 2 ] * _inner_loop_beta__ui ) - ( _inner_loop_beta__SS_V_GAINS [ 3 ] * _inner_loop_beta__xc_1 ) - ( _inner_loop_beta__SS_V_GAINS [ 4 ] * _inner_loop_beta__xc_2 ) ; _inner_loop_beta__uv_bounded = _inner_loop_beta__uv ; if ( ( _inner_loop_beta__uv * _inner_loop_beta__uv ) / sqrt ( _inner_loop_beta__uv * _inner_loop_beta__uv ) >= _inner_loop_beta__UV_BOUNDARY ) _inner_loop_beta__uv_bounded = _inner_loop_beta__UV_BOUNDARY * _inner_loop_beta__uv / sqrt ( _inner_loop_beta__uv * _inner_loop_beta__uv ) ; _inner_loop_beta__err = _inner_loop_beta__IN_V0 - _inner_loop_beta__IN_VC ; _inner_loop_beta__ui = ( _inner_loop_beta__IN_KR * _inner_loop_beta__uv_bounded ) - ( _inner_loop_beta__SS_I_GAINS [ 0 ] * _inner_loop_beta__IN_ILF ) - ( _inner_loop_beta__SS_I_GAINS [ 1 ] * _inner_loop_beta__IN_VC ) - ( _inner_loop_beta__SS_I_GAINS [ 2 ] * _inner_loop_beta__ui ) ; _inner_loop_beta__ui_bounded = _inner_loop_beta__ui ; if ( ( _inner_loop_beta__ui * _inner_loop_beta__ui ) / sqrt ( _inner_loop_beta__ui * _inner_loop_beta__ui ) >= _inner_loop_beta__UI_BOUNDARY ) _inner_loop_beta__ui_bounded = _inner_loop_beta__UI_BOUNDARY * _inner_loop_beta__ui / sqrt ( _inner_loop_beta__ui * _inner_loop_beta__ui ) ; _inner_loop_beta__xc_1_kminus1 = _inner_loop_beta__xc_1 ; _inner_loop_beta__xc_2_kminus1 = _inner_loop_beta__xc_2 ; _inner_loop_beta__xc_1 = 0.0 * _inner_loop_beta__xc_1 + 1 * _inner_loop_beta__xc_2_kminus1 ; _inner_loop_beta__xc_2 = - exp ( - _inner_loop_beta__A * _inner_loop_beta__TS_20KHZ ) * _inner_loop_beta__xc_1_kminus1 + 2 * exp ( - 2 * _inner_loop_beta__A * _inner_loop_beta__TS_20KHZ ) * cos ( _inner_loop_beta__OMEGA0 * _inner_loop_beta__TS_20KHZ ) * _inner_loop_beta__xc_2_kminus1 + _inner_loop_beta__err ; _inner_loop_beta__OUT_U_ALPHA = + _inner_loop_beta__ui_bounded ; _inner_loop_beta__OUT_ILF_REF = _inner_loop_beta__uv_bounded ;
 }
 
          // Generated from the component: Grid Load.Load.Phase A.Grid synchronization.Abs1
@@ -8726,23 +8720,17 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
          // Generated from the component: Grid Load.Load.Phase C.Relational operator2
             _grid_load_load_phase_c_relational_operator2__out = (_grid_load_load_phase_c_abs5__out >= _grid_load_load_phase_c_abs3__out) ? 1 : 0;
 
-         // Generated from the component: ual
-            HIL_OutAO(0x4033, (float)_inner_loop_alpha__OUT_U_ALPHA);
-
          // Generated from the component: Bus Join3
         
 	        	_bus_join3__out[0] = _inner_loop_alpha__OUT_U_ALPHA;
- 	        	_bus_join3__out[1] = _inner_loop_alpha1__OUT_U_ALPHA;
+ 	        	_bus_join3__out[1] = _inner_loop_beta__OUT_U_ALPHA;
  	        	_bus_join3__out[2] = _dc_voltage__out;
  
          // Generated from the component: Bus Join9
         
 	        	_bus_join9__out[0] = _inner_loop_alpha__OUT_ILF_REF;
- 	        	_bus_join9__out[1] = _inner_loop_alpha1__OUT_ILF_REF;
+ 	        	_bus_join9__out[1] = _inner_loop_beta__OUT_ILF_REF;
  
-         // Generated from the component: ube
-            HIL_OutAO(0x4034, (float)_inner_loop_alpha1__OUT_U_ALPHA);
-
          // Generated from the component: Grid Load.Load.Phase A.Grid synchronization.Comparator1
               
 
@@ -9195,7 +9183,7 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
             _geo_pwm__IN_VDC_2 = _dc_bus_vc2_va1__out;
 
     {
-    _geo_pwm__err = 500 - _geo_pwm__IN_VDC_2 ; _geo_pwm__i0 = _geo_pwm__IN_KP * _geo_pwm__err + 0 * ( _geo_pwm__err_kminus + _geo_pwm__err * 0.00005 ) ; _geo_pwm__v0 = geoMod_computeV0 ( _geo_pwm__i0 , _geo_pwm__IN_M [ 2 ] , _geo_pwm__IN_M [ 0 ] , _geo_pwm__IN_M [ 1 ] , _geo_pwm__IN_ILF [ 0 ] , _geo_pwm__IN_ILF [ 1 ] , _geo_pwm__IN_ILF [ 2 ] ) ; _geo_pwm__OUT_V_AB0 [ 0 ] = _geo_pwm__IN_M [ 0 ] ; _geo_pwm__OUT_V_AB0 [ 1 ] = _geo_pwm__IN_M [ 1 ] ; _geo_pwm__OUT_V_AB0 [ 2 ] = _geo_pwm__v0 ; _geo_pwm__err_kminus = _geo_pwm__err ;
+    _geo_pwm__err = 500 - _geo_pwm__IN_VDC_2 ; _geo_pwm__i0 = _geo_pwm__IN_KP * _geo_pwm__err + 0 * ( _geo_pwm__err_kminus + _geo_pwm__err * 0.00005 ) ; _geo_pwm__v0 = computeV0 ( _geo_pwm__i0 , _geo_pwm__IN_M [ 2 ] , _geo_pwm__IN_M [ 0 ] , _geo_pwm__IN_M [ 1 ] , _geo_pwm__IN_ILF [ 0 ] , _geo_pwm__IN_ILF [ 1 ] , _geo_pwm__IN_ILF [ 2 ] ) ; _geo_pwm__OUT_V_AB0 [ 0 ] = _geo_pwm__IN_M [ 0 ] ; _geo_pwm__OUT_V_AB0 [ 1 ] = _geo_pwm__IN_M [ 1 ] ; _geo_pwm__OUT_V_AB0 [ 2 ] = _geo_pwm__v0 ; _geo_pwm__err_kminus = _geo_pwm__err ;
 }
 
          // Generated from the component: ILF0_AB0
@@ -9248,10 +9236,10 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
     alphaBetaToAbc_PI ( _inv_clarke__IN_V_AB0 [ 0 ] , _inv_clarke__IN_V_AB0 [ 1 ] , _inv_clarke__IN_V_AB0 [ 2 ] , & _inv_clarke__van , & _inv_clarke__vbn , & _inv_clarke__vcn ) ; _inv_clarke__OUT_V [ 0 ] = _inv_clarke__van ; _inv_clarke__OUT_V [ 1 ] = _inv_clarke__vbn ; _inv_clarke__OUT_V [ 2 ] = _inv_clarke__vcn ;
 }
 
-         // Generated from the component: modulating1
-                HIL_OutAO(0x4030, (float)_geo_pwm__OUT_V_AB0[0]);
-        HIL_OutAO(0x4031, (float)_geo_pwm__OUT_V_AB0[1]);
-        HIL_OutAO(0x4032, (float)_geo_pwm__OUT_V_AB0[2]);
+         // Generated from the component: U
+                HIL_OutAO(0x401c, (float)_geo_pwm__OUT_V_AB0[0]);
+        HIL_OutAO(0x401d, (float)_geo_pwm__OUT_V_AB0[1]);
+        HIL_OutAO(0x401e, (float)_geo_pwm__OUT_V_AB0[2]);
 
 
          // Generated from the component: Grid Load.Load.Phase A.counter
@@ -9353,6 +9341,12 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
         _grid_load_load_phase_c_single_phase_pll1_discrete_transfer_function1__out = _grid_load_load_phase_c_single_phase_pll1_discrete_transfer_function1__b_sum;
 
 
+         // Generated from the component: MOD
+                HIL_OutAO(0x4015, (float)_inv_clarke__OUT_V[0]);
+        HIL_OutAO(0x4016, (float)_inv_clarke__OUT_V[1]);
+        HIL_OutAO(0x4017, (float)_inv_clarke__OUT_V[2]);
+
+
          // Generated from the component: Modulation.Bus Split1
                      _modulation_bus_split1__out=_inv_clarke__OUT_V[0];
  
@@ -9360,12 +9354,6 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
  
             _modulation_bus_split1__out2=_inv_clarke__OUT_V[2];
  
-
-         // Generated from the component: modulating
-                HIL_OutAO(0x402d, (float)_inv_clarke__OUT_V[0]);
-        HIL_OutAO(0x402e, (float)_inv_clarke__OUT_V[1]);
-        HIL_OutAO(0x402f, (float)_inv_clarke__OUT_V[2]);
-
 
          // Generated from the component: Grid Load.Load.Phase A.Logical operator13
         _grid_load_load_phase_a_logical_operator13__out =_grid_load_load_phase_a_counter__out && _grid_load_load_logical_operator1__out ;  
@@ -10916,7 +10904,7 @@ void TimerCounterHandler_1_user_sp_cpu0_dev0() {
         
     
 
-         // Generated from the component: INNER_LOOP_ALPHA1
+         // Generated from the component: INNER_LOOP_BETA
         
     
 
